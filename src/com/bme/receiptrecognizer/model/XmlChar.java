@@ -6,7 +6,7 @@ public class XmlChar {
 	int t;
 	int l;
 	String s;
-	boolean suspicios = false;
+	boolean suspicious = false;
 	public int getB() {
 		return b;
 	}
@@ -37,11 +37,11 @@ public class XmlChar {
 	public void setS(String s) {
 		this.s = s;
 	}
-	public boolean isSuspicios() {
-		return suspicios;
+	public boolean isSuspicious() {
+		return suspicious;
 	}
-	public void setSuspicios(boolean suspicios) {
-		this.suspicios = suspicios;
+	public void setSuspicious(boolean suspicious) {
+		this.suspicious = suspicious;
 	}
 	
 	

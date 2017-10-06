@@ -77,14 +77,15 @@ canvas {
 			jsonObject = receipt.chars;
 			for (var i = 0; i < jsonObject.length; i++) {
 				canvasCtx.rect(jsonObject[i].l/smaller, jsonObject[i].t/smaller, (jsonObject[i].r/smaller-jsonObject[i].l/smaller), (jsonObject[i].b/smaller-jsonObject[i].t/smaller));
-				if(jsonObject[i].suspicious)
+				if(jsonObject[i].suspicious){
 					canvasCtx.strokeStyle = "red";
-				else
+					canvasCtx.fillStyle = 'red';}
+				else{
 					canvasCtx.strokeStyle = "black";
+					canvasCtx.fillStyle = 'blue';}
 				canvasCtx.stroke();
 				var fontSize = Math.round(50 / smaller);
 				canvasCtx.font=fontSize+"px Time New Roman";
-				canvasCtx.fillStyle = 'blue';
 				canvasCtx.fillText(jsonObject[i].s,jsonObject[i].l/smaller, jsonObject[i].b/smaller);
 			}
 		}

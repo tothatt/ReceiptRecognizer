@@ -44,7 +44,7 @@ public class XmlParser {
 					xmlChar.setT(Integer.parseInt(((Element) cElementList.item(k)).getAttribute("t")));
 					xmlChar.setR(Integer.parseInt(((Element) cElementList.item(k)).getAttribute("r")));
 					xmlChar.setB(Integer.parseInt(((Element) cElementList.item(k)).getAttribute("b")));
-					xmlChar.setSuspicios(((Element) cElementList.item(k)).hasAttribute("suspicious"));
+					xmlChar.setSuspicious(((Element) cElementList.item(k)).hasAttribute("suspicious"));
 					receipt.chars.add(xmlChar);
 					// System.out.println("charParams text:" +
 					// cElementList.item(k).getTextContent() + " l : " +
