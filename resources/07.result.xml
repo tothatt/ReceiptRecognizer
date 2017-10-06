@@ -1,0 +1,590 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<document xmlns="http://www.abbyy.com/FineReader_xml/FineReader10-schema-v1.xml" version="1.0" producer="ABBYY FineReader Engine 11" languages="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.abbyy.com/FineReader_xml/FineReader10-schema-v1.xml http://www.abbyy.com/FineReader_xml/FineReader10-schema-v1.xml">
+<page width="340" height="600" resolution="300" originalCoords="1">
+<block blockType="Text" blockName="" l="51" t="104" r="276" b="156"><region><rect l="246" t="104" r="276" b="105"/><rect l="183" t="105" r="276" b="106"/><rect l="157" t="106" r="276" b="107"/><rect l="133" t="107" r="276" b="108"/><rect l="105" t="108" r="276" b="109"/><rect l="71" t="109" r="276" b="110"/><rect l="51" t="110" r="276" b="151"/><rect l="51" t="151" r="247" b="152"/><rect l="51" t="152" r="188" b="153"/><rect l="51" t="153" r="134" b="154"/><rect l="51" t="154" r="105" b="155"/><rect l="51" t="155" r="70" b="156"/></region>
+<text>
+<par align="Center" leftIndent="200" lineSpacing="312">
+<line baseline="121" l="130" t="107" r="204" b="122"><formatting lang="Hungarian">
+<charParams l="130" t="109" r="137" b="120">Ü</charParams>
+<charParams l="137" t="109" r="143" b="119">Z</charParams>
+<charParams l="143" t="110" r="150" b="120">L</charParams>
+<charParams l="150" t="109" r="157" b="119">E</charParams>
+<charParams l="158" t="108" r="163" b="118">T</charParams>
+<charParams l="166" t="113" r="168" b="119">:</charParams>
+<charParams l="169" t="109" r="176" b="119"> </charParams>
+<charParams l="177" t="108" r="184" b="119">0</charParams>
+<charParams l="185" t="109" r="190" b="119">1</charParams>
+<charParams l="191" t="108" r="197" b="118">7</charParams>
+<charParams l="198" t="109" r="204" b="117">0</charParams></formatting></line></par>
+<par align="Center" leftIndent="200" lineSpacing="312">
+<line baseline="134" l="57" t="118" r="270" b="138"><formatting lang="Hungarian">
+<charParams l="57" t="127" r="63" b="137">6</charParams>
+<charParams l="63" t="127" r="70" b="137">6</charParams>
+<charParams l="70" t="126" r="77" b="137">0</charParams>
+<charParams l="77" t="126" r="83" b="135">0</charParams>
+<charParams l="84" t="126" r="89" b="135"> </charParams>
+<charParams l="90" t="126" r="97" b="135">S</charParams>
+<charParams l="97" t="125" r="103" b="135">Z</charParams>
+<charParams l="103" t="125" r="110" b="135">E</charParams>
+<charParams l="110" t="125" r="117" b="134">N</charParams>
+<charParams l="118" t="124" r="122" b="134">T</charParams>
+<charParams l="124" t="124" r="130" b="134">E</charParams>
+<charParams l="131" t="123" r="137" b="134">S</charParams>
+<charParams l="140" t="132" r="142" b="134">,</charParams>
+<charParams l="143" t="123" r="150" b="134"> </charParams>
+<charParams l="151" t="123" r="156" b="133">I</charParams>
+<charParams l="157" t="122" r="164" b="133">P</charParams>
+<charParams l="164" t="122" r="170" b="133">A</charParams>
+<charParams l="171" t="123" r="177" b="133">R</charParams>
+<charParams l="178" t="123" r="183" b="132">T</charParams>
+<charParams l="184" t="122" r="190" b="133">E</charParams>
+<charParams l="191" t="123" r="197" b="132">L</charParams>
+<charParams l="197" t="122" r="204" b="132">E</charParams>
+<charParams l="204" t="122" r="211" b="131">P</charParams>
+<charParams l="211" t="122" r="217" b="132">I</charParams>
+<charParams l="218" t="121" r="223" b="132"> </charParams>
+<charParams l="224" t="121" r="231" b="131" suspicious="1">Ü</charParams>
+<charParams l="231" t="121" r="237" b="130">T</charParams>
+<charParams l="238" t="121" r="245" b="131"> </charParams>
+<charParams l="246" t="120" r="252" b="131" suspicious="1">2</charParams>
+<charParams l="253" t="124" r="258" b="125">-</charParams>
+<charParams l="259" t="119" r="265" b="129">6</charParams>
+<charParams l="268" t="127" r="270" b="129" suspicious="1">.</charParams></formatting></line>
+<line baseline="147" l="91" t="134" r="238" b="150"><formatting lang="Hungarian">
+<charParams l="91" t="139" r="97" b="149">A</charParams>
+<charParams l="97" t="139" r="104" b="149" suspicious="1">D</charParams>
+<charParams l="104" t="138" r="111" b="149">Ó</charParams>
+<charParams l="111" t="138" r="117" b="148">S</charParams>
+<charParams l="118" t="138" r="124" b="148">Z</charParams>
+<charParams l="124" t="138" r="131" b="147" suspicious="1">Á</charParams>
+<charParams l="131" t="137" r="138" b="147">M</charParams>
+<charParams l="140" t="141" r="142" b="147">:</charParams>
+<charParams l="143" t="137" r="150" b="147"> </charParams>
+<charParams l="151" t="137" r="157" b="146">2</charParams>
+<charParams l="159" t="136" r="164" b="147">1</charParams>
+<charParams l="164" t="135" r="171" b="147">5</charParams>
+<charParams l="171" t="137" r="178" b="146">8</charParams>
+<charParams l="178" t="137" r="184" b="146" suspicious="1">8</charParams>
+<charParams l="184" t="136" r="191" b="147">0</charParams>
+<charParams l="192" t="136" r="197" b="145">1</charParams>
+<charParams l="198" t="135" r="204" b="145">7</charParams>
+<charParams l="206" t="140" r="211" b="141">-</charParams>
+<charParams l="211" t="135" r="218" b="145">2</charParams>
+<charParams l="219" t="139" r="224" b="141">-</charParams>
+<charParams l="225" t="135" r="231" b="144">0</charParams>
+<charParams l="232" t="135" r="238" b="144">0</charParams></formatting></line></par>
+</text>
+</block>
+<block blockType="Text" blockName="" l="132" t="171" r="186" b="195"><region><rect l="162" t="171" r="186" b="172"/><rect l="135" t="172" r="186" b="173"/><rect l="133" t="173" r="186" b="177"/><rect l="133" t="177" r="185" b="178"/><rect l="132" t="178" r="185" b="193"/><rect l="132" t="193" r="185" b="194"/><rect l="132" t="194" r="137" b="195"/></region>
+<text>
+<par align="Center" leftIndent="200" lineSpacing="450">
+<line baseline="188" l="138" t="176" r="179" b="188"><formatting lang="Hungarian">
+<charParams l="138" t="178" r="146" b="187">N</charParams>
+<charParams l="145" t="178" r="152" b="187" suspicious="1">Y</charParams>
+<charParams l="151" t="178" r="159" b="187" suspicious="1">U</charParams>
+<charParams l="158" t="176" r="166" b="187">S</charParams>
+<charParams l="165" t="176" r="171" b="187" suspicious="1">T</charParams>
+<charParams l="172" t="177" r="179" b="187">A</charParams></formatting></line></par>
+</text>
+</block>
+<block blockType="Text" blockName="" l="16" t="200" r="179" b="321"><region><rect l="163" t="200" r="166" b="201"/><rect l="136" t="201" r="177" b="202"/><rect l="104" t="202" r="177" b="203"/><rect l="70" t="203" r="177" b="204"/><rect l="34" t="204" r="177" b="205"/><rect l="16" t="205" r="177" b="224"/><rect l="16" t="224" r="178" b="225"/><rect l="17" t="225" r="178" b="276"/><rect l="17" t="276" r="179" b="278"/><rect l="18" t="278" r="179" b="301"/><rect l="18" t="301" r="178" b="304"/><rect l="17" t="304" r="178" b="317"/><rect l="17" t="317" r="178" b="318"/><rect l="17" t="318" r="126" b="319"/><rect l="17" t="319" r="91" b="320"/><rect l="17" t="320" r="59" b="321"/></region>
+<text>
+<par lineSpacing="312">
+<line baseline="216" l="31" t="202" r="165" b="221"><formatting lang="Hungarian">
+<charParams l="31" t="208" r="38" b="220">E</charParams>
+<charParams l="38" t="208" r="44" b="219">L</charParams>
+<charParams l="45" t="209" r="51" b="219">S</charParams>
+<charParams l="52" t="209" r="58" b="219" suspicious="1">Ő</charParams>
+<charParams l="58" t="209" r="65" b="219">S</charParams>
+<charParams l="65" t="208" r="71" b="219">E</charParams>
+<charParams l="72" t="207" r="78" b="218">G</charParams>
+<charParams l="78" t="207" r="85" b="218">É</charParams>
+<charParams l="85" t="207" r="92" b="217">L</charParams>
+<charParams l="91" t="207" r="98" b="217">Y</charParams>
+<charParams l="99" t="207" r="104" b="217"> </charParams>
+<charParams l="105" t="207" r="111" b="217">L</charParams>
+<charParams l="112" t="208" r="119" b="216">A</charParams>
+<charParams l="119" t="206" r="125" b="216">D</charParams>
+<charParams l="125" t="206" r="132" b="216">A</charParams>
+<charParams l="133" t="205" r="138" b="216"> </charParams>
+<charParams l="139" t="205" r="145" b="215">5</charParams>
+<charParams l="146" t="205" r="152" b="214">3</charParams>
+<charParams l="152" t="205" r="159" b="215">9</charParams>
+<charParams l="159" t="203" r="165" b="214">0</charParams></formatting></line>
+<line baseline="229" l="31" t="219" r="132" b="234"><formatting lang="Hungarian">
+<charParams l="31" t="222" r="39" b="233">2</charParams>
+<charParams l="39" t="221" r="45" b="233"> </charParams>
+<charParams l="45" t="222" r="52" b="232" suspicious="1">0</charParams>
+<charParams l="51" t="223" r="59" b="232" suspicious="1">6</charParams>
+<charParams l="59" t="222" r="65" b="232"> </charParams>
+<charParams l="65" t="221" r="73" b="232" suspicious="1">X</charParams>
+<charParams l="73" t="221" r="79" b="231"> </charParams>
+<charParams l="79" t="221" r="85" b="231" suspicious="1">1</charParams>
+<charParams l="85" t="221" r="92" b="231"> </charParams>
+<charParams l="92" t="221" r="99" b="231">2</charParams>
+<charParams l="98" t="221" r="106" b="230">9</charParams>
+<charParams l="105" t="220" r="113" b="230">9</charParams>
+<charParams l="113" t="220" r="119" b="229"> </charParams>
+<charParams l="119" t="220" r="126" b="229">F</charParams>
+<charParams l="125" t="221" r="132" b="229">t</charParams></formatting></line>
+<line baseline="243" l="33" t="231" r="139" b="247"><formatting lang="Hungarian">
+<charParams l="33" t="235" r="39" b="246">S</charParams>
+<charParams l="40" t="235" r="46" b="246">Z</charParams>
+<charParams l="46" t="236" r="53" b="246">E</charParams>
+<charParams l="53" t="236" r="60" b="246">N</charParams>
+<charParams l="60" t="236" r="66" b="246">D</charParams>
+<charParams l="67" t="235" r="73" b="245">V</charParams>
+<charParams l="74" t="235" r="79" b="245">I</charParams>
+<charParams l="80" t="235" r="86" b="244">C</charParams>
+<charParams l="87" t="235" r="93" b="244">S</charParams>
+<charParams l="94" t="234" r="99" b="244"> </charParams>
+<charParams l="100" t="233" r="106" b="243">F</charParams>
+<charParams l="107" t="233" r="113" b="243">E</charParams>
+<charParams l="113" t="234" r="119" b="243">L</charParams>
+<charParams l="121" t="233" r="125" b="243">T</charParams>
+<charParams l="127" t="233" r="133" b="243">É</charParams>
+<charParams l="134" t="232" r="139" b="242">T</charParams></formatting></line>
+<line baseline="257" l="33" t="246" r="134" b="261"><formatting lang="Hungarian">
+<charParams l="33" t="250" r="39" b="259">S</charParams>
+<charParams l="40" t="249" r="46" b="260">Z</charParams>
+<charParams l="47" t="249" r="53" b="260">E</charParams>
+<charParams l="53" t="251" r="59" b="260">L</charParams>
+<charParams l="60" t="250" r="66" b="259">E</charParams>
+<charParams l="67" t="249" r="72" b="259">T</charParams>
+<charParams l="73" t="248" r="79" b="258">E</charParams>
+<charParams l="80" t="249" r="86" b="258">L</charParams>
+<charParams l="88" t="248" r="93" b="258">T</charParams>
+<charParams l="94" t="248" r="99" b="258"> </charParams>
+<charParams l="100" t="247" r="107" b="257">G</charParams>
+<charParams l="107" t="247" r="113" b="257">O</charParams>
+<charParams l="113" t="247" r="120" b="256">M</charParams>
+<charParams l="120" t="247" r="127" b="257">B</charParams>
+<charParams l="127" t="247" r="134" b="256">A</charParams></formatting></line>
+<line baseline="270" l="34" t="260" r="120" b="274"><formatting lang="Hungarian">
+<charParams l="34" t="263" r="40" b="273">2</charParams>
+<charParams l="41" t="262" r="46" b="273"> </charParams>
+<charParams l="47" t="263" r="54" b="273">D</charParams>
+<charParams l="54" t="263" r="60" b="273">B</charParams>
+<charParams l="61" t="263" r="66" b="273"> </charParams>
+<charParams l="67" t="263" r="73" b="272">X</charParams>
+<charParams l="74" t="262" r="81" b="271"> </charParams>
+<charParams l="82" t="262" r="86" b="271">1</charParams>
+<charParams l="87" t="262" r="94" b="272">9</charParams>
+<charParams l="94" t="262" r="101" b="271">9</charParams>
+<charParams l="102" t="262" r="106" b="271"> </charParams>
+<charParams l="107" t="261" r="114" b="270">F</charParams>
+<charParams l="114" t="262" r="120" b="270">t</charParams></formatting></line>
+<line baseline="285" l="34" t="273" r="108" b="288"><formatting lang="Hungarian">
+<charParams l="34" t="276" r="41" b="286">F</charParams>
+<charParams l="41" t="276" r="47" b="287">I</charParams>
+<charParams l="48" t="278" r="55" b="286">N</charParams>
+<charParams l="54" t="277" r="61" b="287">O</charParams>
+<charParams l="61" t="278" r="69" b="286">M</charParams>
+<charParams l="69" t="277" r="74" b="286"> </charParams>
+<charParams l="74" t="277" r="82" b="285">H</charParams>
+<charParams l="81" t="277" r="89" b="284">A</charParams>
+<charParams l="88" t="276" r="95" b="285">J</charParams>
+<charParams l="94" t="276" r="102" b="284">A</charParams>
+<charParams l="101" t="274" r="108" b="285">S</charParams></formatting></line>
+<line baseline="298" l="35" t="285" r="170" b="303"><formatting lang="Hungarian">
+<charParams l="35" t="291" r="42" b="300">M</charParams>
+<charParams l="42" t="290" r="49" b="302">O</charParams>
+<charParams l="50" t="291" r="54" b="300">T</charParams>
+<charParams l="55" t="291" r="61" b="300">O</charParams>
+<charParams l="61" t="291" r="69" b="300">R</charParams>
+<charParams l="69" t="290" r="76" b="300">O</charParams>
+<charParams l="76" t="290" r="82" b="299">S</charParams>
+<charParams l="83" t="290" r="88" b="299"> </charParams>
+<charParams l="89" t="293" r="92" b="298" suspicious="1">r</charParams>
+<charParams l="92" t="289" r="102" b="299">C</charParams>
+<charParams l="102" t="288" r="109" b="298">A</charParams>
+<charParams l="109" t="288" r="116" b="298">D</charParams>
+<charParams l="116" t="288" r="122" b="298">S</charParams>
+<charParams l="122" t="288" r="129" b="298">E</charParams>
+<charParams l="129" t="288" r="135" b="297">T</charParams>
+<charParams l="136" t="287" r="141" b="297"> </charParams>
+<charParams l="142" t="286" r="149" b="296">0</charParams>
+<charParams l="149" t="286" r="155" b="296">9</charParams>
+<charParams l="155" t="287" r="163" b="296">6</charParams>
+<charParams l="163" t="286" r="170" b="297">5</charParams></formatting></line>
+<line baseline="312" l="35" t="302" r="107" b="316"><formatting lang="Hungarian">
+<charParams l="35" t="305" r="41" b="315">R</charParams>
+<charParams l="41" t="305" r="48" b="316">É</charParams>
+<charParams l="48" t="305" r="54" b="316">S</charParams>
+<charParams l="55" t="304" r="62" b="316">Z</charParams>
+<charParams l="61" t="304" r="69" b="315">Ö</charParams>
+<charParams l="68" t="303" r="76" b="315">S</charParams>
+<charParams l="74" t="304" r="81" b="314">S</charParams>
+<charParams l="82" t="303" r="89" b="314">Z</charParams>
+<charParams l="88" t="303" r="96" b="315">E</charParams>
+<charParams l="95" t="304" r="101" b="313">G</charParams>
+<charParams l="104" t="307" r="106" b="313">:</charParams></formatting></line></par>
+</text>
+</block>
+<block blockType="Text" blockName="" l="237" t="194" r="311" b="315"><region><rect l="293" t="194" r="309" b="195"/><rect l="246" t="195" r="309" b="196"/><rect l="237" t="196" r="309" b="223"/><rect l="237" t="223" r="310" b="225"/><rect l="238" t="225" r="310" b="275"/><rect l="238" t="275" r="311" b="277"/><rect l="239" t="277" r="311" b="298"/><rect l="239" t="298" r="310" b="299"/><rect l="238" t="299" r="310" b="315"/></region>
+<text>
+<par align="Justified" lineSpacing="450">
+<line baseline="214" l="247" t="200" r="300" b="212"><formatting lang="Hungarian">
+<charParams l="247" t="202" r="254" b="211">2</charParams>
+<charParams l="255" t="201" r="259" b="211"> </charParams>
+<charParams l="260" t="201" r="267" b="211">5</charParams>
+<charParams l="267" t="201" r="274" b="211">9</charParams>
+<charParams l="274" t="201" r="280" b="211">8</charParams>
+<charParams l="281" t="201" r="293" b="212"> </charParams>
+<charParams l="294" t="201" r="300" b="211">C</charParams></formatting></line></par>
+<par align="Justified" lineSpacing="312">
+<line baseline="241" l="262" t="227" r="302" b="239"><formatting lang="Hungarian">
+<charParams l="262" t="228" r="268" b="237">0</charParams>
+<charParams l="269" t="229" r="275" b="238">0</charParams>
+<charParams l="275" t="228" r="282" b="238">9</charParams>
+<charParams l="283" t="227" r="295" b="239"> </charParams>
+<charParams l="296" t="228" r="302" b="237">C</charParams></formatting></line>
+<line baseline="254" l="263" t="241" r="302" b="253"><formatting lang="Hungarian">
+<charParams l="263" t="242" r="269" b="251">3</charParams>
+<charParams l="269" t="242" r="276" b="252">9</charParams>
+<charParams l="276" t="242" r="283" b="251">8</charParams>
+<charParams l="284" t="241" r="295" b="252"> </charParams>
+<charParams l="296" t="242" r="302" b="251">C</charParams></formatting></line></par>
+<par align="Justified" lineSpacing="360">
+<line baseline="295" l="251" t="282" r="305" b="293"><formatting lang="Hungarian">
+<charParams l="251" t="283" r="258" b="292">7</charParams>
+<charParams l="264" t="283" r="270" b="292" suspicious="1">9</charParams>
+<charParams l="270" t="283" r="285" b="292" suspicious="1">f</charParams>
+<charParams l="270" t="283" r="285" b="292" suspicious="1">f</charParams>
+<charParams l="270" t="283" r="285" b="292" suspicious="1">i</charParams>
+<charParams l="286" t="282" r="296" b="293"> </charParams>
+<charParams l="297" t="283" r="305" b="292">C</charParams></formatting></line>
+<line baseline="310" l="243" t="295" r="304" b="310"><formatting lang="Hungarian">
+<charParams l="243" t="297" r="250" b="309">1</charParams>
+<charParams l="251" t="297" r="257" b="308">1</charParams>
+<charParams l="257" t="296" r="263" b="308"> </charParams>
+<charParams l="263" t="296" r="271" b="308">6</charParams>
+<charParams l="271" t="297" r="277" b="307">1</charParams>
+<charParams l="277" t="297" r="284" b="307">3</charParams>
+<charParams l="284" t="296" r="290" b="307"> </charParams>
+<charParams l="290" t="295" r="298" b="307">F</charParams>
+<charParams l="297" t="298" r="304" b="307">t</charParams></formatting></line></par>
+</text>
+</block>
+<block blockType="Text" blockName="" l="22" t="356" r="83" b="375"><region><rect l="59" t="356" r="82" b="357"/><rect l="32" t="357" r="82" b="358"/><rect l="22" t="358" r="82" b="366"/><rect l="22" t="366" r="83" b="367"/><rect l="23" t="367" r="83" b="374"/><rect l="23" t="374" r="61" b="375"/></region>
+<text>
+<par lineSpacing="450">
+<line baseline="367" l="36" t="358" r="70" b="370"><formatting lang="Hungarian">
+<charParams l="36" t="360" r="44" b="369">A</charParams>
+<charParams l="43" t="360" r="51" b="370">D</charParams>
+<charParams l="50" t="361" r="58" b="370">O</charParams>
+<charParams l="57" t="359" r="63" b="370">T</charParams>
+<charParams l="64" t="359" r="70" b="369">T</charParams></formatting></line></par>
+</text>
+</block>
+<block blockType="Text" blockName="" l="96" t="352" r="195" b="373"><region><rect l="163" t="352" r="194" b="353"/><rect l="126" t="353" r="194" b="354"/><rect l="96" t="354" r="194" b="365"/><rect l="96" t="365" r="195" b="366"/><rect l="97" t="366" r="195" b="371"/><rect l="97" t="371" r="195" b="372"/><rect l="97" t="372" r="129" b="373"/></region>
+<text>
+<par lineSpacing="450">
+<line baseline="365" l="110" t="355" r="179" b="369"><formatting lang="Hungarian">
+<charParams l="110" t="358" r="118" b="368">B</charParams>
+<charParams l="117" t="358" r="125" b="367">A</charParams>
+<charParams l="124" t="357" r="132" b="367">N</charParams>
+<charParams l="131" t="357" r="138" b="366" suspicious="1">K</charParams>
+<charParams l="137" t="356" r="145" b="366" suspicious="1">K</charParams>
+<charParams l="144" t="357" r="152" b="366" suspicious="1">Á</charParams>
+<charParams l="151" t="356" r="157" b="365">R</charParams>
+<charParams l="158" t="356" r="163" b="365">T</charParams>
+<charParams l="165" t="356" r="171" b="366" suspicious="1">Y</charParams>
+<charParams l="171" t="356" r="178" b="365">A</charParams></formatting></line></par>
+</text>
+</block>
+<block blockType="Text" blockName="" l="25" t="375" r="300" b="513"><region><rect l="268" t="375" r="294" b="376"/><rect l="229" t="376" r="298" b="377"/><rect l="167" t="377" r="298" b="378"/><rect l="128" t="378" r="298" b="379"/><rect l="91" t="379" r="298" b="380"/><rect l="60" t="380" r="298" b="381"/><rect l="34" t="381" r="298" b="382"/><rect l="25" t="382" r="298" b="405"/><rect l="25" t="405" r="299" b="408"/><rect l="26" t="408" r="299" b="422"/><rect l="26" t="422" r="298" b="428"/><rect l="25" t="428" r="298" b="446"/><rect l="25" t="446" r="299" b="450"/><rect l="26" t="450" r="299" b="491"/><rect l="26" t="491" r="300" b="493"/><rect l="27" t="493" r="300" b="507"/><rect l="27" t="507" r="299" b="508"/><rect l="27" t="508" r="232" b="509"/><rect l="27" t="509" r="205" b="510"/><rect l="27" t="510" r="178" b="511"/><rect l="27" t="511" r="88" b="512"/><rect l="27" t="512" r="61" b="513"/></region>
+<text>
+<par align="Center" leftIndent="200" lineSpacing="312">
+<line baseline="393" l="119" t="381" r="212" b="396"><formatting lang="Hungarian">
+<charParams l="119" t="385" r="125" b="395">J</charParams>
+<charParams l="125" t="384" r="132" b="395" suspicious="1">Ó</charParams>
+<charParams l="132" t="383" r="138" b="393">T</charParams>
+<charParams l="139" t="383" r="145" b="393" suspicious="1">Á</charParams>
+<charParams l="145" t="384" r="152" b="393">L</charParams>
+<charParams l="152" t="384" r="158" b="393">L</charParams>
+<charParams l="159" t="383" r="165" b="393" suspicious="1">Á</charParams>
+<charParams l="165" t="382" r="172" b="394">S</charParams>
+<charParams l="173" t="383" r="178" b="393">I</charParams>
+<charParams l="179" t="383" r="185" b="393"> </charParams>
+<charParams l="186" t="383" r="192" b="393">J</charParams>
+<charParams l="192" t="382" r="199" b="392">E</charParams>
+<charParams l="199" t="382" r="206" b="392">G</charParams>
+<charParams l="206" t="382" r="212" b="391">Y</charParams></formatting></line></par>
+<par align="Center" leftIndent="200" lineSpacing="312">
+<line baseline="406" l="45" t="391" r="282" b="412"><formatting lang="Hungarian">
+<charParams l="45" t="401" r="53" b="411">G</charParams>
+<charParams l="52" t="402" r="59" b="411">A</charParams>
+<charParams l="58" t="401" r="66" b="411">R</charParams>
+<charParams l="65" t="401" r="73" b="410">A</charParams>
+<charParams l="72" t="401" r="79" b="410">N</charParams>
+<charParams l="78" t="400" r="86" b="410">C</charParams>
+<charParams l="86" t="399" r="92" b="410">I</charParams>
+<charParams l="92" t="399" r="99" b="409">A</charParams>
+<charParams l="98" t="399" r="106" b="408" suspicious="1">K</charParams>
+<charParams l="106" t="400" r="113" b="409" suspicious="1">O</charParams>
+<charParams l="112" t="399" r="119" b="408">T</charParams>
+<charParams l="119" t="398" r="126" b="408">E</charParams>
+<charParams l="125" t="398" r="133" b="409">L</charParams>
+<charParams l="132" t="397" r="139" b="407">E</charParams>
+<charParams l="139" t="397" r="147" b="407">S</charParams>
+<charParams l="147" t="397" r="153" b="407"> </charParams>
+<charParams l="153" t="397" r="158" b="406">T</charParams>
+<charParams l="159" t="397" r="166" b="407">E</charParams>
+<charParams l="166" t="396" r="173" b="407">R</charParams>
+<charParams l="172" t="397" r="180" b="406">M</charParams>
+<charParams l="179" t="397" r="186" b="406">É</charParams>
+<charParams l="186" t="397" r="192" b="406">K</charParams>
+<charParams l="193" t="396" r="199" b="406"> </charParams>
+<charParams l="200" t="396" r="206" b="405">V</charParams>
+<charParams l="206" t="395" r="213" b="405" suspicious="1">Á</charParams>
+<charParams l="213" t="396" r="219" b="405">S</charParams>
+<charParams l="220" t="395" r="226" b="405" suspicious="1">Á</charParams>
+<charParams l="226" t="394" r="233" b="405">R</charParams>
+<charParams l="233" t="395" r="239" b="404">L</charParams>
+<charParams l="240" t="394" r="246" b="403" suspicious="1">Á</charParams>
+<charParams l="246" t="394" r="254" b="404">S</charParams>
+<charParams l="254" t="394" r="261" b="404">A</charParams>
+<charParams l="261" t="394" r="267" b="403">K</charParams>
+<charParams l="267" t="393" r="274" b="404">O</charParams>
+<charParams l="274" t="393" r="281" b="402">R</charParams></formatting></line>
+<line baseline="420" l="60" t="406" r="269" b="426"><formatting lang="Hungarian">
+<charParams l="60" t="415" r="67" b="425">A</charParams>
+<charParams l="68" t="414" r="72" b="424"> </charParams>
+<charParams l="73" t="414" r="80" b="424">B</charParams>
+<charParams l="80" t="414" r="86" b="424">I</charParams>
+<charParams l="87" t="413" r="93" b="424">Z</charParams>
+<charParams l="94" t="413" r="100" b="423">O</charParams>
+<charParams l="100" t="413" r="107" b="422">N</charParams>
+<charParams l="107" t="414" r="113" b="422">Y</charParams>
+<charParams l="113" t="413" r="120" b="422">L</charParams>
+<charParams l="120" t="413" r="127" b="421">A</charParams>
+<charParams l="127" t="411" r="132" b="422">T</charParams>
+<charParams l="133" t="410" r="139" b="421"> </charParams>
+<charParams l="140" t="410" r="147" b="421">G</charParams>
+<charParams l="147" t="410" r="153" b="421">A</charParams>
+<charParams l="153" t="411" r="161" b="421">R</charParams>
+<charParams l="161" t="411" r="167" b="420">A</charParams>
+<charParams l="167" t="409" r="174" b="422">N</charParams>
+<charParams l="174" t="410" r="181" b="420">C</charParams>
+<charParams l="181" t="410" r="187" b="421">I</charParams>
+<charParams l="187" t="410" r="194" b="420">A</charParams>
+<charParams l="194" t="410" r="200" b="420">J</charParams>
+<charParams l="200" t="409" r="207" b="421">E</charParams>
+<charParams l="207" t="409" r="214" b="419">G</charParams>
+<charParams l="214" t="410" r="220" b="419">Y</charParams>
+<charParams l="220" t="409" r="227" b="419">K</charParams>
+<charParams l="227" t="408" r="234" b="419">É</charParams>
+<charParams l="234" t="408" r="242" b="418">N</charParams>
+<charParams l="242" t="407" r="247" b="417">T</charParams>
+<charParams l="248" t="407" r="254" b="417"> </charParams>
+<charParams l="255" t="408" r="261" b="417">I</charParams>
+<charParams l="262" t="408" r="269" b="417">S</charParams></formatting></line>
+<line baseline="433" l="46" t="418" r="282" b="439"><formatting lang="Hungarian">
+<charParams l="46" t="428" r="53" b="438">S</charParams>
+<charParams l="52" t="429" r="60" b="438">Z</charParams>
+<charParams l="59" t="428" r="67" b="438">O</charParams>
+<charParams l="66" t="428" r="73" b="437">L</charParams>
+<charParams l="72" t="428" r="80" b="437">G</charParams>
+<charParams l="79" t="428" r="87" b="437" suspicious="1">Á</charParams>
+<charParams l="86" t="427" r="92" b="437">L</charParams>
+<charParams l="94" t="427" r="97" b="436">!</charParams>
+<charParams l="98" t="427" r="105" b="436"> </charParams>
+<charParams l="106" t="427" r="112" b="436">S</charParams>
+<charParams l="113" t="426" r="120" b="436">Z</charParams>
+<charParams l="119" t="426" r="127" b="435">E</charParams>
+<charParams l="126" t="425" r="134" b="435">R</charParams>
+<charParams l="133" t="426" r="139" b="434">V</charParams>
+<charParams l="140" t="425" r="146" b="434" suspicious="1">1</charParams>
+<charParams l="147" t="424" r="154" b="434">Z</charParams>
+<charParams l="153" t="425" r="160" b="434">C</charParams>
+<charParams l="160" t="425" r="166" b="434">I</charParams>
+<charParams l="166" t="424" r="174" b="434">M</charParams>
+<charParams l="174" t="424" r="180" b="433"> </charParams>
+<charParams l="180" t="424" r="187" b="433">A</charParams>
+<charParams l="187" t="424" r="193" b="433"> </charParams>
+<charParams l="193" t="423" r="201" b="433">C</charParams>
+<charParams l="200" t="423" r="207" b="433">S</charParams>
+<charParams l="206" t="423" r="214" b="432">O</charParams>
+<charParams l="213" t="424" r="221" b="432">M</charParams>
+<charParams l="220" t="423" r="227" b="432">A</charParams>
+<charParams l="227" t="422" r="234" b="432">G</charParams>
+<charParams l="233" t="422" r="241" b="431">O</charParams>
+<charParams l="240" t="422" r="247" b="431">L</charParams>
+<charParams l="247" t="422" r="255" b="431" suspicious="1">Á</charParams>
+<charParams l="255" t="422" r="262" b="431">S</charParams>
+<charParams l="261" t="421" r="269" b="431">B</charParams>
+<charParams l="268" t="421" r="275" b="430">A</charParams>
+<charParams l="274" t="421" r="282" b="429">N</charParams></formatting></line>
+<line baseline="447" l="53" t="433" r="281" b="453"><formatting lang="Hungarian">
+<charParams l="53" t="442" r="59" b="451">T</charParams>
+<charParams l="59" t="442" r="67" b="452" suspicious="1">A</charParams>
+<charParams l="66" t="442" r="73" b="451">L</charParams>
+<charParams l="72" t="441" r="80" b="450" suspicious="1">Á</charParams>
+<charParams l="79" t="442" r="87" b="451">L</charParams>
+<charParams l="86" t="441" r="95" b="450">H</charParams>
+<charParams l="94" t="441" r="100" b="449">A</charParams>
+<charParams l="100" t="440" r="106" b="449">T</charParams>
+<charParams l="107" t="441" r="114" b="449" suspicious="1">Ó</charParams>
+<charParams l="114" t="440" r="118" b="449">!</charParams>
+<charParams l="118" t="440" r="127" b="449"> </charParams>
+<charParams l="127" t="439" r="133" b="449">A</charParams>
+<charParams l="133" t="439" r="140" b="448">K</charParams>
+<charParams l="140" t="438" r="146" b="447">C</charParams>
+<charParams l="148" t="438" r="152" b="447">I</charParams>
+<charParams l="154" t="439" r="160" b="447" suspicious="1">Ó</charParams>
+<charParams l="161" t="438" r="166" b="447">S</charParams>
+<charParams l="167" t="437" r="173" b="448"> </charParams>
+<charParams l="174" t="438" r="178" b="447">T</charParams>
+<charParams l="180" t="437" r="186" b="447">E</charParams>
+<charParams l="187" t="438" r="193" b="447">R</charParams>
+<charParams l="194" t="438" r="201" b="447">M</charParams>
+<charParams l="201" t="437" r="206" b="447">É</charParams>
+<charParams l="207" t="436" r="214" b="445">K</charParams>
+<charParams l="214" t="437" r="220" b="446">E</charParams>
+<charParams l="221" t="436" r="226" b="445">T</charParams>
+<charParams l="227" t="435" r="233" b="446"> </charParams>
+<charParams l="234" t="435" r="240" b="445">E</charParams>
+<charParams l="241" t="435" r="247" b="444">R</charParams>
+<charParams l="247" t="435" r="255" b="445">E</charParams>
+<charParams l="255" t="435" r="262" b="444">D</charParams>
+<charParams l="262" t="435" r="268" b="444">E</charParams>
+<charParams l="269" t="434" r="273" b="444">T</charParams>
+<charParams l="276" t="434" r="281" b="443">I</charParams></formatting></line>
+<line baseline="461" l="47" t="445" r="280" b="467"><formatting lang="Hungarian">
+<charParams l="47" t="455" r="54" b="466">B</charParams>
+<charParams l="54" t="456" r="59" b="466">I</charParams>
+<charParams l="61" t="455" r="67" b="465">Z</charParams>
+<charParams l="67" t="455" r="74" b="464">O</charParams>
+<charParams l="74" t="456" r="81" b="464">N</charParams>
+<charParams l="81" t="455" r="87" b="464">Y</charParams>
+<charParams l="88" t="455" r="93" b="465">L</charParams>
+<charParams l="95" t="454" r="101" b="463">A</charParams>
+<charParams l="101" t="454" r="106" b="463">T</charParams>
+<charParams l="107" t="453" r="113" b="463"> </charParams>
+<charParams l="114" t="453" r="120" b="463">E</charParams>
+<charParams l="120" t="454" r="127" b="463">L</charParams>
+<charParams l="128" t="453" r="134" b="463">L</charParams>
+<charParams l="134" t="452" r="140" b="462">E</charParams>
+<charParams l="141" t="452" r="148" b="461">N</charParams>
+<charParams l="148" t="451" r="154" b="461">É</charParams>
+<charParams l="154" t="452" r="161" b="461">B</charParams>
+<charParams l="161" t="451" r="168" b="461">E</charParams>
+<charParams l="168" t="451" r="175" b="462">N</charParams>
+<charParams l="176" t="452" r="181" b="461"> </charParams>
+<charParams l="182" t="452" r="188" b="460">V</charParams>
+<charParams l="188" t="451" r="194" b="461">E</charParams>
+<charParams l="195" t="451" r="201" b="460">S</charParams>
+<charParams l="202" t="450" r="208" b="461">Z</charParams>
+<charParams l="208" t="451" r="215" b="459" suspicious="1">Ü</charParams>
+<charParams l="215" t="451" r="222" b="460">N</charParams>
+<charParams l="221" t="450" r="228" b="459">K</charParams>
+<charParams l="229" t="449" r="234" b="459"> </charParams>
+<charParams l="235" t="449" r="242" b="458">V</charParams>
+<charParams l="242" t="449" r="247" b="458">I</charParams>
+<charParams l="248" t="449" r="256" b="458">S</charParams>
+<charParams l="256" t="449" r="263" b="458">S</charParams>
+<charParams l="263" t="448" r="269" b="458">Z</charParams>
+<charParams l="270" t="447" r="276" b="458">A</charParams>
+<charParams l="278" t="448" r="280" b="457">!</charParams></formatting></line>
+<line baseline="474" l="94" t="461" r="240" b="478"><formatting lang="Hungarian">
+<charParams l="94" t="468" r="101" b="477">K</charParams>
+<charParams l="101" t="467" r="108" b="477" suspicious="1">Ö</charParams>
+<charParams l="108" t="468" r="114" b="477">S</charParams>
+<charParams l="115" t="467" r="121" b="477">Z</charParams>
+<charParams l="121" t="467" r="128" b="476">Ö</charParams>
+<charParams l="128" t="466" r="135" b="477">N</charParams>
+<charParams l="135" t="465" r="141" b="476">J</charParams>
+<charParams l="141" t="465" r="148" b="475">Ü</charParams>
+<charParams l="148" t="465" r="154" b="475">K</charParams>
+<charParams l="155" t="465" r="160" b="475"> </charParams>
+<charParams l="161" t="465" r="168" b="474">A</charParams>
+<charParams l="169" t="465" r="174" b="476"> </charParams>
+<charParams l="175" t="465" r="181" b="476">V</charParams>
+<charParams l="181" t="465" r="188" b="474" suspicious="1">Á</charParams>
+<charParams l="189" t="465" r="195" b="475">S</charParams>
+<charParams l="195" t="464" r="202" b="474" suspicious="1">Á</charParams>
+<charParams l="202" t="464" r="208" b="474">R</charParams>
+<charParams l="208" t="464" r="214" b="473">L</charParams>
+<charParams l="215" t="463" r="222" b="473" suspicious="1">Á</charParams>
+<charParams l="222" t="464" r="229" b="473">S</charParams>
+<charParams l="229" t="463" r="234" b="473">T</charParams>
+<charParams l="237" t="463" r="240" b="472">!</charParams></formatting></line></par>
+<par align="Justified" lineSpacing="450">
+<line baseline="502" l="42" t="490" r="203" b="508"><formatting lang="Hungarian">
+<charParams l="42" t="496" r="49" b="507">0</charParams>
+<charParams l="50" t="498" r="55" b="507">1</charParams>
+<charParams l="56" t="496" r="62" b="507">7</charParams>
+<charParams l="63" t="496" r="69" b="506">0</charParams>
+<charParams l="70" t="495" r="95" b="506" isTab="1"> </charParams>
+<charParams l="96" t="495" r="102" b="505">0</charParams>
+<charParams l="102" t="495" r="109" b="505">6</charParams>
+<charParams l="109" t="495" r="116" b="504">5</charParams>
+<charParams l="116" t="494" r="123" b="504">5</charParams>
+<charParams l="123" t="495" r="129" b="504">/</charParams>
+<charParams l="129" t="493" r="136" b="503">0</charParams>
+<charParams l="136" t="493" r="143" b="503">0</charParams>
+<charParams l="143" t="493" r="149" b="503">0</charParams>
+<charParams l="148" t="492" r="156" b="502">0</charParams>
+<charParams l="156" t="493" r="163" b="502">0</charParams>
+<charParams l="164" t="494" r="169" b="502">/</charParams>
+<charParams l="169" t="492" r="176" b="503">0</charParams>
+<charParams l="176" t="492" r="183" b="503">6</charParams>
+<charParams l="184" t="493" r="189" b="502">/</charParams>
+<charParams l="190" t="492" r="196" b="502">0</charParams>
+<charParams l="195" t="492" r="203" b="502">0</charParams></formatting></line></par>
+</text>
+</block>
+<block blockType="Text" blockName="" l="239" t="523" r="320" b="557"><region><rect l="279" t="523" r="319" b="524"/><rect l="239" t="524" r="319" b="537"/><rect l="239" t="537" r="320" b="539"/><rect l="240" t="539" r="320" b="545"/><rect l="239" t="545" r="319" b="557"/></region>
+<text>
+<par align="Right" lineSpacing="450">
+<line baseline="541" l="244" t="529" r="313" b="542"><formatting lang="Hungarian">
+<charParams l="244" t="531" r="252" b="540">0</charParams>
+<charParams l="251" t="531" r="260" b="541">6</charParams>
+<charParams l="259" t="531" r="266" b="540">5</charParams>
+<charParams l="265" t="530" r="273" b="540">5</charParams>
+<charParams l="272" t="531" r="279" b="539" suspicious="1">/</charParams>
+<charParams l="279" t="529" r="286" b="540">0</charParams>
+<charParams l="285" t="529" r="293" b="539">0</charParams>
+<charParams l="292" t="529" r="300" b="540">0</charParams>
+<charParams l="299" t="530" r="307" b="539">0</charParams>
+<charParams l="306" t="530" r="313" b="539">0</charParams></formatting></line></par>
+<par align="Right" lineSpacing="450">
+<line baseline="555" l="279" t="542" r="314" b="554"><formatting lang="Hungarian">
+<charParams l="279" t="542" r="287" b="553">0</charParams>
+<charParams l="286" t="542" r="294" b="552">8</charParams>
+<charParams l="295" t="546" r="297" b="553">:</charParams>
+<charParams l="299" t="543" r="307" b="553">3</charParams>
+<charParams l="306" t="543" r="314" b="553">6</charParams></formatting></line></par>
+</text>
+</block>
+<block blockType="Separator" blockName="" l="50" t="316" r="283" b="325"><region><rect l="268" t="316" r="283" b="317"/><rect l="225" t="317" r="283" b="318"/><rect l="190" t="318" r="283" b="319"/><rect l="160" t="319" r="269" b="320"/><rect l="124" t="320" r="226" b="321"/><rect l="89" t="321" r="192" b="322"/><rect l="57" t="322" r="126" b="323"/><rect l="50" t="323" r="90" b="324"/><rect l="51" t="324" r="59" b="325"/></region>
+<separator type="Black" thickness="2"><start x="61" y="320"/><end x="293" y="320"/>
+</separator>
+</block>
+<block blockType="Separator" blockName="" l="0" t="592" r="339" b="599"><region><rect l="39" t="592" r="130" b="593"/><rect l="22" t="593" r="298" b="594"/><rect l="6" t="594" r="339" b="595"/><rect l="0" t="595" r="339" b="597"/><rect l="0" t="597" r="339" b="598"/><rect l="0" t="598" r="286" b="599"/></region>
+<separator type="Black" thickness="4"><start x="6" y="595"/><end x="345" y="595"/>
+</separator>
+</block>
+<block blockType="Separator" blockName="" l="0" t="0" r="0" b="0"><region><rect l="0" t="0" r="0" b="0"/></region>
+<separator type="Black" thickness="1"><start x="35" y="601"/><end x="118" y="601"/>
+</separator>
+</block>
+<block blockType="Separator" blockName="" l="261" t="177" r="299" b="181"><region><rect l="294" t="177" r="299" b="178"/><rect l="261" t="178" r="299" b="180"/><rect l="290" t="180" r="295" b="181"/></region>
+<separator type="Dotted" thickness="3"><start x="272" y="181"/><end x="310" y="181"/>
+</separator>
+</block>
+<block blockType="Separator" blockName="" l="32" t="185" r="69" b="188"><region><rect l="35" t="185" r="69" b="186"/><rect l="32" t="186" r="69" b="188"/></region>
+<separator type="Dotted" thickness="2"><start x="44" y="184"/><end x="81" y="184"/>
+</separator>
+</block>
+<block blockType="Separator" blockName="" l="238" t="316" r="304" b="318"><region><rect l="268" t="316" r="304" b="317"/><rect l="238" t="317" r="304" b="318"/></region>
+<separator type="Dotted" thickness="2"><start x="249" y="319"/><end x="314" y="319"/>
+</separator>
+</block>
+<block blockType="Separator" blockName="" l="37" t="322" r="101" b="326"><region><rect l="89" t="322" r="100" b="323"/><rect l="57" t="323" r="101" b="324"/><rect l="37" t="324" r="92" b="325"/><rect l="45" t="325" r="60" b="326"/></region>
+<separator type="Dotted" thickness="2"><start x="47" y="322"/><end x="111" y="322"/>
+</separator>
+</block>
+</page>
+</document>
