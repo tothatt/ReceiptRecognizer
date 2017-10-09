@@ -1,11 +1,6 @@
-package com.bme.receiptrecognizer.service;
+package com.abbyy.ocrsdk;
 
-import java.util.Arrays;
-import java.util.Vector;
-
-import com.abbyy.ocrsdk.Client;
-import com.abbyy.ocrsdk.ProcessingSettings;
-import com.abbyy.ocrsdk.Task;
+import com.bme.receiptrecognizer.model.ClientSettings;
 import com.bme.receiptrecognizer.model.Receipt;
 
 public class App {

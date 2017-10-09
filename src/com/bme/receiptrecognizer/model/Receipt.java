@@ -3,18 +3,20 @@ package com.bme.receiptrecognizer.model;
 import java.util.*;
 
 public class Receipt {
-	String name = "";
+	private String name = "";
 	
-	public List<XmlChar> chars = new ArrayList<>();
+	private  List<XmlChar> chars = new ArrayList<>();
 	
-	int imgWidth = 0;
+	private int imgWidth = 0;
 	
-	int imgHeight = 0;
+	private int imgHeight = 0;
 	
-	String imageUrl = "";
+	private String imageUrl = "";
 	
-	String xmlUrl = "";
-
+	private String xmlUrl = "";
+	
+	private Map<Integer, String> lines;
+	
 	public String getName() {
 		return name;
 	}
@@ -61,7 +63,17 @@ public class Receipt {
 
 	public void setImgHeight(int imgHeight) {
 		this.imgHeight = imgHeight;
-	} 
+	}
+
+	public Map<Integer, String> getLines() {
+		return lines;
+	}
+
+	public void setLines(Map<Integer, String> lines) {
+		this.lines = lines;
+	}
+
+	
 	
 	
 }

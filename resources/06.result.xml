@@ -352,7 +352,7 @@
 <charParams b="1467" l="346" r="362" t="1437">é</charParams>
 <charParams b="1467" l="366" r="379" t="1438">t</charParams>
 <charParams b="1468" l="384" r="399" suspicious="1" t="1432">f</charParams>
-<charParams b="1467" l="403" r="420" suspicious="1" t="1436">?</charParams>
+<charParams b="1467" l="403" r="420" suspicious="1" t="1436">ő</charParams>
 <charParams b="1452" l="423" r="439" t="1448">-</charParams>
 <charParams b="1468" l="443" r="460" t="1433">V</charParams>
 <charParams b="1468" l="463" r="479" t="1443">a</charParams>
@@ -423,7 +423,7 @@
 <charParams b="1656" l="191" r="208" suspicious="1" t="1628">ü</charParams>
 <charParams b="1656" l="210" r="227" t="1625">k</charParams>
 <charParams b="1656" l="228" r="248" t="1625"> </charParams>
-<charParams b="1655" l="249" r="266" t="1626">?</charParams>
+<charParams b="1655" l="249" r="266" t="1626">ő</charParams>
 <charParams b="1656" l="268" r="284" t="1632">r</charParams>
 <charParams b="1656" l="292" r="297" t="1624">i</charParams>
 <charParams b="1656" l="307" r="323" t="1631">z</charParams>
@@ -485,7 +485,7 @@
 <charParams b="1750" l="213" r="221" t="1717">i</charParams>
 <charParams b="1750" l="221" r="229" t="1715"> </charParams>
 <charParams b="1749" l="229" r="247" t="1715">d</charParams>
-<charParams b="1749" l="248" r="266" suspicious="1" t="1720">?</charParams>
+<charParams b="1749" l="248" r="266" suspicious="1" t="1720">ő</charParams>
 <charParams b="1749" l="269" r="285" t="1725">p</charParams>
 <charParams b="1749" l="288" r="305" t="1724">o</charParams>
 <charParams b="1749" l="307" r="324" t="1725">n</charParams>
@@ -504,8 +504,8 @@
 <charParams b="1750" l="520" r="538" t="1720">ú</charParams>
 <charParams b="1749" l="540" r="556" t="1726">s</charParams>
 <charParams b="1750" l="556" r="562" t="1722"> </charParams>
-<charParams b="1750" l="562" r="569" suspicious="1" t="1722">f</charParams>
-<charParams b="1750" l="569" r="580" t="1721"> </charParams>
+<charParams b="1750" l="562" r="569" suspicious="1" t="1722"/>
+<charParams b="1750" l="569" r="580" t="1721">í</charParams>
 <charParams b="1750" l="580" r="593" t="1721">t</charParams>
 <charParams b="1750" l="596" r="614" t="1720">á</charParams>
 <charParams b="1750" l="616" r="633" t="1725">s</charParams>

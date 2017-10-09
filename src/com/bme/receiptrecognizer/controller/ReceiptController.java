@@ -24,9 +24,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.abbyy.ocrsdk.App;
+import com.bme.receiptrecognizer.model.ClientSettings;
 import com.bme.receiptrecognizer.model.Receipt;
-import com.bme.receiptrecognizer.service.App;
-import com.bme.receiptrecognizer.service.ClientSettings;
+import com.bme.receiptrecognizer.service.TextParser;
 import com.bme.receiptrecognizer.service.XmlParser;
 import com.bme.receiptrecognizer.service.XmlWriter;
 
@@ -34,6 +35,10 @@ import com.bme.receiptrecognizer.service.XmlWriter;
 public class ReceiptController {
 
 	private static ObjectMapper mapper = new ObjectMapper();
+	
+	XmlParser xmlParser = new XmlParser();
+	
+	TextParser textParser = new TextParser();
 	
 	@RequestMapping("/")
 	public String index() {
@@ -70,24 +75,24 @@ public class ReceiptController {
 	@ResponseBody
 	@RequestMapping(value = "/images/{name}", method = RequestMethod.GET, produces = MediaType.IMAGE_JPEG_VALUE)
 	public byte[] image(HttpServletRequest request, @PathVariable String name) throws IOException {
-		System.out.println("/" + name + ".png");
 		InputStream in = new FileInputStream(ClientSettings.RESOURCE_URL + name);
 		return IOUtils.toByteArray(in);
 	}
 
-	@RequestMapping(value = "/imageinfo/{name}", method = RequestMethod.GET)
+	@RequestMapping(value = "/imageinfo/{name}", method = RequestMethod.GET, produces={"plain/text; charset=UTF-8"})
 	public @ResponseBody String imageInfo(HttpServletRequest request, @PathVariable String name) throws IOException {
-		XmlParser xmlParser = new XmlParser();
+
 		Receipt receipt = xmlParser.parsexml(name + ".result.xml");
-		receipt.setImageUrl(name + ".png");
-		System.out.println(receipt.chars.size());
+		receipt.setLines(textParser.extractLinesFromReceipt(receipt));
+//		textParser.nameEntityRec(receipt);
+		textParser.getDatesFromReceipt(receipt);
+		receipt.setImageUrl(ClientSettings.RESOURCE_URL + name);
 		return mapper.writeValueAsString(receipt);
 	}
 
 	@RequestMapping(value = "/changechar", method = RequestMethod.POST)
 	public ModelAndView changeChar(@RequestBody String body) {
 		Receipt receipt = null;
-		System.out.println(body);
 		try {
 			receipt = mapper.readValue(body, Receipt.class);
 		} catch (JsonParseException e) {

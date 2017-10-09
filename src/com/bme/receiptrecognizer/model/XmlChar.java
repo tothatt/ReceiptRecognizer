@@ -1,12 +1,14 @@
 package com.bme.receiptrecognizer.model;
 
 public class XmlChar {
-	int b;
-	int r;
-	int t;
-	int l;
-	String s;
-	boolean suspicious = false;
+	private int b;
+	private int r;
+	private int t;
+	private int l;
+	private String s;
+	private boolean suspicious = false;
+	private int lineId;
+
 	public int getB() {
 		return b;
 	}
@@ -43,7 +45,13 @@ public class XmlChar {
 	public void setSuspicious(boolean suspicious) {
 		this.suspicious = suspicious;
 	}
-	
+	public int getLineId() {
+		return lineId;
+	}
+
+	public void setLineId(int lineId) {
+		this.lineId = lineId;
+	} 
 	
 	
 }

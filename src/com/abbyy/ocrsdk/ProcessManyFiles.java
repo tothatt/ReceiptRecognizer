@@ -1,4 +1,4 @@
-package com.bme.receiptrecognizer.service;
+package com.abbyy.ocrsdk;
 import com.abbyy.ocrsdk.*;
 import java.util.*;
 import java.io.*;

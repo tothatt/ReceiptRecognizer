@@ -1,4 +1,4 @@
-package com.bme.receiptrecognizer.service;
+package com.bme.receiptrecognizer.model;
 
 /**
  * Authentication settings for Cloud OCR SDK client.

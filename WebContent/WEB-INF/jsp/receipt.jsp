@@ -6,19 +6,21 @@
 body {
 	background-image: url('http://crunchify.com/bg.png');
 }
+
 canvas {
 	border: 1px solid #d3d3d3;
 }
+
 .button {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 20px;
+	background-color: #4CAF50; /* Green */
+	border: none;
+	color: white;
+	padding: 10px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 20px;
 }
 </style>
 <script type="text/javascript"
@@ -29,18 +31,31 @@ canvas {
 		<canvas id="canvas"></canvas>
 		<img style="display: none;" id="receipt" alt="image"
 			src="${pageContext.request.contextPath}/images/${szamlanev}" />
-			<button class="button"  onclick="hideRects();" >Hide rectangles and recognized chars</button> 	
-			<button class="button"  onclick="printRects();" >Show rectangles and recognized chars</button> 	
-			
-		</div>
-		<div>
-		<p>Image size adjust: (lower the number bigger it gets): <input id="imageSize" type="text" value = "2" size="4"/>
+		<textarea id="textFromReceipt" cols="50">
+		</textarea>
+	</div>
+	<div>
+
+		<button class="button" onclick="hideRects();">Hide
+			rectangles and recognized chars</button>
+		<button class="button" onclick="printRects();">Show
+			rectangles and recognized chars</button>
+		<button class="button" onclick="loadText();">Load text</button>
+	</div>
+	<div>
+		<p>
+			Image size adjust: (lower the number bigger it gets): <input
+				id="imageSize" type="text" value="2" size="4" />
 		</p>
-		<p>To update xml file with changed values of characters  lick the button:</p><p>
-		<button class="button"  onclick="sizeChange();" >Reload picture</button> 
-		<button class="button"  onclick="updateXml();" >Update XML</button></p>
-		</div>
-	
+		<p>To update xml file with changed values of characters lick the
+			button:</p>
+		<p>
+			<button class="button" onclick="sizeChange();">Reload
+				picture</button>
+			<button class="button" onclick="updateXml();">Update XML</button>
+		</p>
+	</div>
+
 	<script>
 	window.onload = function() {
 		var jsonResponse;
@@ -126,6 +141,21 @@ canvas {
 		
 		hideRects = function(){
 			canvasCtx.drawImage(img, 0,0, width, height);
+		}
+		textAreaAdjust = function(o) {
+		    o.style.height = "1px";
+		    o.style.height = (25+o.scrollHeight)+"px";
+		}
+		
+		loadText = function(){
+			 $('#textFromReceipt').text('');
+			var textJson = receipt.lines;
+			 for (var key in textJson) {
+			      if (textJson.hasOwnProperty(key)) {
+			    	  $('#textFromReceipt').append(textJson[key]+ '\n');
+			      }
+			    }
+			 textAreaAdjust(document.getElementById("textFromReceipt"));
 		}
 		
 	}

@@ -12,6 +12,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import com.bme.receiptrecognizer.model.ClientSettings;
 import com.bme.receiptrecognizer.model.Receipt;
 import com.bme.receiptrecognizer.model.XmlChar;
 
@@ -30,22 +31,23 @@ public class XmlParser {
 			NodeList pageNode =  doc.getElementsByTagName("page");
 			receipt.setImgWidth(Integer.parseInt(((Element) pageNode.item(0)).getAttribute("width")));
 			receipt.setImgHeight(Integer.parseInt(((Element) pageNode.item(0)).getAttribute("height")));
-			NodeList nList = doc.getElementsByTagName("formatting");
+			NodeList nList = doc.getElementsByTagName("line");
 			for (int i = 0; i < nList.getLength(); i++) {
 				Node nNode = nList.item(i);
 				Element eElement = (Element) nNode;
-				
+				int lineId = Integer.parseInt(eElement.getAttribute("baseline"));
 
 				NodeList cElementList = eElement.getElementsByTagName("charParams");
 				for (int k = 0; k < cElementList.getLength(); k++) {
 					XmlChar xmlChar = new XmlChar();
+					xmlChar.setLineId(lineId);
 					xmlChar.setS(cElementList.item(k).getTextContent());
 					xmlChar.setL(Integer.parseInt(((Element) cElementList.item(k)).getAttribute("l")));
 					xmlChar.setT(Integer.parseInt(((Element) cElementList.item(k)).getAttribute("t")));
 					xmlChar.setR(Integer.parseInt(((Element) cElementList.item(k)).getAttribute("r")));
 					xmlChar.setB(Integer.parseInt(((Element) cElementList.item(k)).getAttribute("b")));
 					xmlChar.setSuspicious(((Element) cElementList.item(k)).hasAttribute("suspicious"));
-					receipt.chars.add(xmlChar);
+					receipt.getChars().add(xmlChar);
 					// System.out.println("charParams text:" +
 					// cElementList.item(k).getTextContent() + " l : " +
 					// ((Element)cElementList.item(k)).getAttribute("l"));
