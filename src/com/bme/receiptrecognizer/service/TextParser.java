@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -11,17 +12,12 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.commons.lang.time.DateUtils;
+
 import com.bme.receiptrecognizer.model.Receipt;
 import com.bme.receiptrecognizer.model.XmlChar;
-import com.joestelmach.natty.DateGroup;
-import com.joestelmach.natty.Parser;
 
 public class TextParser {
-	public List<String> extractWordsFromReceipt() {
-		StringBuilder textFromReceipt = new StringBuilder();
-		return null;
-	}
-
 	public Map<Integer, String> extractLinesFromReceipt(Receipt receipt) {
 		Map<Integer, String> retval = new HashMap<>();
 		Map<Integer, StringBuilder> lines = new HashMap<>();
@@ -40,25 +36,91 @@ public class TextParser {
 		return retval;
 	}
 
-	public List<String> nameEntityRec(Receipt receipt) {
+	public Date getDatesFromReceipt(Receipt receipt) {
+		Date date = null;
+		String[] acceptedFormats = { "yyyy.MM.dd", "yyyy.MM.dd HH:mm", "yyyy.MM.dd.", "yyyy.MM.dd. HH:mm" };
+		Pattern p = Pattern.compile("\\d{4}.\\d{2}.\\d{2}(.)*(\\d{2}.\\d{2})?");
+		for (Map.Entry<Integer, String> entry : receipt.getLines().entrySet()) {
+			Matcher m = p.matcher(entry.getValue());
+			if (m.find()) {
+				try {
+					date = DateUtils.parseDate(m.group(), acceptedFormats);
+					System.out.println(date.toString());
+				} catch (ParseException e) {
+				}
+			}
 
-		return null;
+		}
+		return date;
+
 	}
 
-	public List<Date> getDatesFromReceipt(Receipt receipt) {
-		DateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd HH:mm");
-		Pattern p = Pattern.compile("(\\d{4}.\\d{2}.\\d{2}.\\d{2}.\\d{2})");
-		for (Map.Entry<Integer, String> entry : receipt.getLines().entrySet()) {
-			String date = entry.getValue().replaceAll("[^0-9]", "");
-			Matcher m = p.matcher(entry.getValue());
-			try{
-			    Date d = dateFormat.parse(date);
-			    System.out.println(d.toString());
-			}catch (ParseException e) {
-			}
-			
+	public String getAddressesFromReceipt(Receipt receipt) {
+		String address = "";
+		Pattern p = Pattern.compile("\\d{4}(.)*(\\d{3}|\\d{2}|\\d{1})\\.");
+		Matcher m = p.matcher(getLinesFromReceipt(receipt, 0, 4));
+		if (m.find()) {
+			System.out.println(m.group());
+			address = m.group();
 		}
-		return null;
+		return address;
 
+	}
+
+	public String getCompanyNameFromReceipt(Receipt receipt) {
+		String company = "";
+		Pattern p = Pattern.compile(""
+				+ "(.)*(Kkt|Kht|Bt|Kv|Kft|Rt|ZRt|NyRt|KKT|KHT|BT|KV|KFT|RT|ZRT|NYRT|kkt|kht|bt|kv|kft|rt|zrt|nyrt)(\\.)?");
+		Matcher m = p.matcher(getLinesFromReceipt(receipt, 0, 2));
+		if (m.find()) {
+			System.out.println(m.group());
+			company = m.group();
+		}
+		return company;
+
+	}
+
+	public String getItemsFromReceipt(Receipt receipt) {
+		String company = "";
+		Pattern p = Pattern.compile(""
+				+ "(.)*(Kkt|Kht|Bt|Kv|Kft|Rt|ZRt|NyRt|KKT|KHT|BT|KV|KFT|RT|ZRT|NYRT|kkt|kht|bt|kv|kft|rt|zrt|nyrt)(\\.)?");
+		Matcher m = p.matcher(getLinesFromReceipt(receipt, 0, 2));
+		if (m.find()) {
+			System.out.println(m.group());
+			company = m.group();
+		}
+		return company;
+
+	}
+
+	public String getFinalAmount(Receipt receipt) {
+		String amount = "";
+		Pattern p = Pattern
+				.compile("(Összesen|összesen|ÖSSZESEN)(:)?(\\d{6}|\\d{5}|\\d{4}|\\d{3}|\\d{2}|\\d{1})(Ft|ft|FT)");
+		String textWithoutSpace = receipt.getFullText().replace(" ", "");
+		Matcher m = p.matcher(textWithoutSpace);
+		if (m.find()) {
+			amount = m.group();
+			amount = amount.toLowerCase().replace("összesen", "");
+			amount = amount.toLowerCase().replace(":", "");
+			amount = amount.toLowerCase().replace("ft", "");
+			System.out.println(amount);
+		}
+		return amount;
+	}
+	
+	private String getLinesFromReceipt(Receipt receipt, int from, int to) {
+		StringBuilder lines = new StringBuilder();
+		List<Integer> sortedKeys = new ArrayList<Integer>(receipt.getLines().keySet());
+		Collections.sort(sortedKeys);
+		int k = 0;
+		for (int i : sortedKeys) {
+			if (from <= k && k <= to) {
+				lines.append(receipt.getLines().get(i));
+				lines.append(" ");
+			}
+			k++;
+		}
+		return lines.toString();
 	}
 }

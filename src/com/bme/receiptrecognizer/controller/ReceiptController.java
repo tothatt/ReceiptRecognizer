@@ -86,6 +86,9 @@ public class ReceiptController {
 		receipt.setLines(textParser.extractLinesFromReceipt(receipt));
 //		textParser.nameEntityRec(receipt);
 		textParser.getDatesFromReceipt(receipt);
+		textParser.getAddressesFromReceipt(receipt);
+		textParser.getCompanyNameFromReceipt(receipt);
+		textParser.getFinalAmount(receipt);
 		receipt.setImageUrl(ClientSettings.RESOURCE_URL + name);
 		return mapper.writeValueAsString(receipt);
 	}
