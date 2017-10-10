@@ -8,10 +8,33 @@
         http://www.springframework.org/schema/mvc/spring-mvc.xsd
         http://www.springframework.org/schema/context 
         http://www.springframework.org/schema/context/spring-context.xsd">
- 
-	<context:component-scan base-package="com.bme.receiptrecognizer.controller" />
+        
+	<!-- Controller declarations -->
+	<bean id="receiptController" class="com.bme.receiptrecognizer.controller.ReceiptController">
+		<property name="textParserService" ref="textParserService" />
+		<property name="xmlParserService" ref="xmlParserService" />
+	</bean>
 	
-<!-- 	<mvc:default-servlet-handler/> -->
+	<!-- Service declarations -->
+	<bean id="textParserService" class="com.bme.receiptrecognizer.service.TextParserService">
+	</bean>
+	
+	<bean id="xmlParserService" class="com.bme.receiptrecognizer.service.XmlParserService">
+	</bean>
+	
+	<bean id="xmlWriterService" class="com.bme.receiptrecognizer.service.XmlWriterService">
+	</bean>
+ 
+	<context:component-scan base-package="com.bme.receiptrecognizer" />
+	
+	<mvc:default-servlet-handler/>
+
+	<context:annotation-config />
+
+	<context:property-placeholder />
+
+
+	<mvc:annotation-driven />
  
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.UrlBasedViewResolver">

@@ -1,8 +1,6 @@
 package com.bme.receiptrecognizer.service;
 
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -17,7 +15,7 @@ import org.apache.commons.lang.time.DateUtils;
 import com.bme.receiptrecognizer.model.Receipt;
 import com.bme.receiptrecognizer.model.XmlChar;
 
-public class TextParser {
+public class TextParserService {
 	public Map<Integer, String> extractLinesFromReceipt(Receipt receipt) {
 		Map<Integer, String> retval = new HashMap<>();
 		Map<Integer, StringBuilder> lines = new HashMap<>();
@@ -45,7 +43,6 @@ public class TextParser {
 			if (m.find()) {
 				try {
 					date = DateUtils.parseDate(m.group(), acceptedFormats);
-					System.out.println(date.toString());
 				} catch (ParseException e) {
 				}
 			}
@@ -60,7 +57,6 @@ public class TextParser {
 		Pattern p = Pattern.compile("\\d{4}(.)*(\\d{3}|\\d{2}|\\d{1})\\.");
 		Matcher m = p.matcher(getLinesFromReceipt(receipt, 0, 4));
 		if (m.find()) {
-			System.out.println(m.group());
 			address = m.group();
 		}
 		return address;
@@ -73,7 +69,6 @@ public class TextParser {
 				+ "(.)*(Kkt|Kht|Bt|Kv|Kft|Rt|ZRt|NyRt|KKT|KHT|BT|KV|KFT|RT|ZRT|NYRT|kkt|kht|bt|kv|kft|rt|zrt|nyrt)(\\.)?");
 		Matcher m = p.matcher(getLinesFromReceipt(receipt, 0, 2));
 		if (m.find()) {
-			System.out.println(m.group());
 			company = m.group();
 		}
 		return company;
@@ -86,7 +81,6 @@ public class TextParser {
 				+ "(.)*(Kkt|Kht|Bt|Kv|Kft|Rt|ZRt|NyRt|KKT|KHT|BT|KV|KFT|RT|ZRT|NYRT|kkt|kht|bt|kv|kft|rt|zrt|nyrt)(\\.)?");
 		Matcher m = p.matcher(getLinesFromReceipt(receipt, 0, 2));
 		if (m.find()) {
-			System.out.println(m.group());
 			company = m.group();
 		}
 		return company;
@@ -97,14 +91,13 @@ public class TextParser {
 		String amount = "";
 		Pattern p = Pattern
 				.compile("(Összesen|összesen|ÖSSZESEN)(:)?(\\d{6}|\\d{5}|\\d{4}|\\d{3}|\\d{2}|\\d{1})(Ft|ft|FT)");
-		String textWithoutSpace = receipt.getFullText().replace(" ", "");
+		String textWithoutSpace = getFullText(receipt).replace(" ", "");
 		Matcher m = p.matcher(textWithoutSpace);
 		if (m.find()) {
 			amount = m.group();
 			amount = amount.toLowerCase().replace("összesen", "");
 			amount = amount.toLowerCase().replace(":", "");
 			amount = amount.toLowerCase().replace("ft", "");
-			System.out.println(amount);
 		}
 		return amount;
 	}
@@ -120,6 +113,18 @@ public class TextParser {
 				lines.append(" ");
 			}
 			k++;
+		}
+		return lines.toString();
+	}
+	
+	private String getFullText(Receipt receipt){
+		StringBuilder lines = new StringBuilder();
+		List<Integer> sortedKeys=new ArrayList<Integer>(receipt.getLines().keySet());
+		Collections.sort(sortedKeys);
+		for(int i : sortedKeys){
+				lines.append(receipt.getLines().get(i));
+				lines.append(" ");
+			
 		}
 		return lines.toString();
 	}

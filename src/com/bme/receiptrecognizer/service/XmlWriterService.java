@@ -21,7 +21,7 @@ import org.xml.sax.SAXException;
 import com.bme.receiptrecognizer.model.Receipt;
 import com.bme.receiptrecognizer.model.XmlChar;
 
-public class XmlWriter {
+public class XmlWriterService {
 
 	public void updateXmlFile(Receipt receipt) {
 

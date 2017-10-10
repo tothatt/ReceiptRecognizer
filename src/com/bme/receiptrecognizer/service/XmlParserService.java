@@ -16,7 +16,7 @@ import com.bme.receiptrecognizer.model.ClientSettings;
 import com.bme.receiptrecognizer.model.Receipt;
 import com.bme.receiptrecognizer.model.XmlChar;
 
-public class XmlParser {
+public class XmlParserService {
 	public Receipt parsexml(String string) {
 		Receipt receipt = new Receipt();
 
@@ -25,10 +25,8 @@ public class XmlParser {
 			DocumentBuilder db;
 			receipt.setXmlUrl(ClientSettings.RESOURCE_URL + string);
 			db = dbf.newDocumentBuilder();
-			System.out.println(string);
-			//Document doc = db.parse(this.getClass().getResourceAsStream(string));
 			Document doc = db.parse(ClientSettings.RESOURCE_URL + string);
-			NodeList pageNode =  doc.getElementsByTagName("page");
+			NodeList pageNode = doc.getElementsByTagName("page");
 			receipt.setImgWidth(Integer.parseInt(((Element) pageNode.item(0)).getAttribute("width")));
 			receipt.setImgHeight(Integer.parseInt(((Element) pageNode.item(0)).getAttribute("height")));
 			NodeList nList = doc.getElementsByTagName("line");
@@ -48,10 +46,6 @@ public class XmlParser {
 					xmlChar.setB(Integer.parseInt(((Element) cElementList.item(k)).getAttribute("b")));
 					xmlChar.setSuspicious(((Element) cElementList.item(k)).hasAttribute("suspicious"));
 					receipt.getChars().add(xmlChar);
-					// System.out.println("charParams text:" +
-					// cElementList.item(k).getTextContent() + " l : " +
-					// ((Element)cElementList.item(k)).getAttribute("l"));
-
 				}
 
 			}

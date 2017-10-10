@@ -10,9 +10,7 @@ import java.nio.file.Paths;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.io.IOUtils;
-import org.codehaus.jackson.JsonParseException;
-import org.codehaus.jackson.map.JsonMappingException;
-import org.codehaus.jackson.map.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,19 +24,36 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.abbyy.ocrsdk.App;
 import com.bme.receiptrecognizer.model.ClientSettings;
+import com.bme.receiptrecognizer.model.DataFromReceipt;
 import com.bme.receiptrecognizer.model.Receipt;
-import com.bme.receiptrecognizer.service.TextParser;
-import com.bme.receiptrecognizer.service.XmlParser;
-import com.bme.receiptrecognizer.service.XmlWriter;
+import com.bme.receiptrecognizer.service.TextParserService;
+import com.bme.receiptrecognizer.service.XmlParserService;
+import com.bme.receiptrecognizer.service.XmlWriterService;
 
 @Controller
 public class ReceiptController {
-
-	private static ObjectMapper mapper = new ObjectMapper();
 	
-	XmlParser xmlParser = new XmlParser();
+	private XmlParserService xmlParserService;
 	
-	TextParser textParser = new TextParser();
+	private XmlWriterService xmlWriterService;
+	
+	private TextParserService textParserService;
+	
+	@Autowired
+	public void setXmlParserService(XmlParserService xmlParserService) {
+		this.xmlParserService = xmlParserService;
+	}
+	
+	@Autowired
+	public void setXmlWriterService(XmlWriterService xmlWriterService) {
+		this.xmlWriterService = xmlWriterService;
+	}
+	
+	@Autowired
+	public void setTextParserService(TextParserService textParserService) {
+		this.textParserService = textParserService;
+	}
+	
 	
 	@RequestMapping("/")
 	public String index() {
@@ -79,37 +94,34 @@ public class ReceiptController {
 		return IOUtils.toByteArray(in);
 	}
 
-	@RequestMapping(value = "/imageinfo/{name}", method = RequestMethod.GET, produces={"plain/text; charset=UTF-8"})
-	public @ResponseBody String imageInfo(HttpServletRequest request, @PathVariable String name) throws IOException {
-
-		Receipt receipt = xmlParser.parsexml(name + ".result.xml");
-		receipt.setLines(textParser.extractLinesFromReceipt(receipt));
-//		textParser.nameEntityRec(receipt);
-		textParser.getDatesFromReceipt(receipt);
-		textParser.getAddressesFromReceipt(receipt);
-		textParser.getCompanyNameFromReceipt(receipt);
-		textParser.getFinalAmount(receipt);
+	@RequestMapping(value = "/imageinfo/{name}", method = RequestMethod.GET, produces={"application/json; charset=UTF-8"})
+	public @ResponseBody Receipt imageInfo(HttpServletRequest request, @PathVariable String name) throws IOException {
+		Receipt receipt = xmlParserService.parsexml(name + ".result.xml");
+		receipt.setLines(textParserService.extractLinesFromReceipt(receipt));
 		receipt.setImageUrl(ClientSettings.RESOURCE_URL + name);
-		return mapper.writeValueAsString(receipt);
+		return receipt;
 	}
 
 	@RequestMapping(value = "/changechar", method = RequestMethod.POST)
-	public ModelAndView changeChar(@RequestBody String body) {
-		Receipt receipt = null;
-		try {
-			receipt = mapper.readValue(body, Receipt.class);
-		} catch (JsonParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (JsonMappingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		XmlWriter xmlWriter = new XmlWriter();
-		xmlWriter.updateXmlFile(receipt);
+	public ModelAndView changeChar(@RequestBody Receipt receipt) {
+		xmlWriterService.updateXmlFile(receipt);
 		return new ModelAndView("receipt", "szamlanev", receipt.getName());
+	}
+	
+	@RequestMapping(value = "/receiptdetails/{name}", method = RequestMethod.GET, produces={"application/json; charset=UTF-8"})
+	public ModelAndView receiptInfo(@PathVariable String name) {
+		return new ModelAndView("receipt-info", "szamlanev", name);
+	}
+	
+	@RequestMapping(value = "/receiptinfo/{name}", method = RequestMethod.GET, produces={"application/json; charset=UTF-8"})
+	public @ResponseBody DataFromReceipt receipInfo(HttpServletRequest request, @PathVariable String name) {
+		Receipt receipt = xmlParserService.parsexml(name + ".result.xml");
+		receipt.setLines(textParserService.extractLinesFromReceipt(receipt));
+		DataFromReceipt data = new DataFromReceipt();
+		data.setDate(textParserService.getDatesFromReceipt(receipt));
+		data.setAddress(textParserService.getAddressesFromReceipt(receipt));
+		data.setCompany(textParserService.getCompanyNameFromReceipt(receipt));
+		data.setFinalValue(textParserService.getFinalAmount(receipt));
+		return data;
 	}
 }

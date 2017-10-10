@@ -72,18 +72,5 @@ public class Receipt {
 	public void setLines(Map<Integer, String> lines) {
 		this.lines = lines;
 	}
-
-	public String getFullText(){
-		StringBuilder lines = new StringBuilder();
-		List<Integer> sortedKeys=new ArrayList<Integer>(this.getLines().keySet());
-		Collections.sort(sortedKeys);
-		for(int i : sortedKeys){
-				lines.append(this.getLines().get(i));
-				lines.append(" ");
-			
-		}
-		return lines.toString();
-	}
-	
 	
 }

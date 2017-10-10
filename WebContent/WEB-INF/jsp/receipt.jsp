@@ -75,11 +75,11 @@ canvas {
 			'url' : ctx + '/imageinfo/${szamlanev}',
 			'type' : 'GET',
 			'success' : function(data) {
-				receipt = JSON.parse(data);
+				receipt = data;
 				printRects(data);
 			},
 			'error' : function(request, error) {
-				alert("Request: " + JSON.stringify(request));
+				console.log("Request: " + JSON.stringify(request));
 			}
 		});
 		printRects = function(json) {

@@ -11,7 +11,7 @@ public class DataFromReceipt {
 	
 	private String company;
 	
-	private Integer finalValue;
+	private String finalValue;
 	
 	Map<String, Integer> items = new HashMap<>();
 
@@ -39,11 +39,11 @@ public class DataFromReceipt {
 		this.company = company;
 	}
 
-	public Integer getFinalValue() {
+	public String getFinalValue() {
 		return finalValue;
 	}
 
-	public void setFinalValue(Integer finalValue) {
+	public void setFinalValue(String finalValue) {
 		this.finalValue = finalValue;
 	}
 
