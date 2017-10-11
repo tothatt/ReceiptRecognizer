@@ -16,14 +16,14 @@
 	</bean>
 	
 	<!-- Service declarations -->
-	<bean id="textParserService" class="com.bme.receiptrecognizer.service.TextParserService">
-	</bean>
+	<bean id="textParserService" class="com.bme.receiptrecognizer.service.TextParserService" />
 	
-	<bean id="xmlParserService" class="com.bme.receiptrecognizer.service.XmlParserService">
-	</bean>
+	<bean id="xmlParserService" class="com.bme.receiptrecognizer.service.XmlParserService" />
 	
-	<bean id="xmlWriterService" class="com.bme.receiptrecognizer.service.XmlWriterService">
-	</bean>
+	<bean id="xmlWriterService" class="com.bme.receiptrecognizer.service.XmlWriterService" />
+ 
+ 
+ 	<bean id="springSecurityFilterChain" class="org.springframework.web.filter.DelegatingFilterProxy"/>
  
 	<context:component-scan base-package="com.bme.receiptrecognizer" />
 	

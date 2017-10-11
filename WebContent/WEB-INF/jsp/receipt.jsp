@@ -1,6 +1,9 @@
 <html>
-<meta charset="UTF-8">
 <head>
+<meta charset="UTF-8">
+<meta name="_csrf" content="${_csrf.token}" />
+<!-- default header name is X-CSRF-TOKEN -->
+<meta name="_csrf_header" content="${_csrf.headerName}" />
 <title>Receipt Recognizer BME</title>
 <style type="text/css">
 body {
@@ -36,8 +39,8 @@ canvas {
 	</div>
 	<div>
 
-		<button class="button" onclick="hideRects();">Hide
-			rectangles and recognized chars</button>
+		<button class="button" onclick="hideRects();">Hide rectangles
+			and recognized chars</button>
 		<button class="button" onclick="printRects();">Show
 			rectangles and recognized chars</button>
 		<button class="button" onclick="loadText();">Load text</button>
@@ -70,6 +73,11 @@ canvas {
 		var receipt;
 		var width;
 		var height;
+		
+		var token = $("meta[name='_csrf']").attr("content");
+		$.ajaxPrefilter(function (options, originalOptions, jqXHR) {
+			  jqXHR.setRequestHeader('X-CSRF-Token', token);
+			});
 		
 		$.ajax({
 			'url' : ctx + '/imageinfo/${szamlanev}',

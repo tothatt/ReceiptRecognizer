@@ -1,12 +1,15 @@
 <html>
-<meta charset="UTF-8">
+
 <head>
+<meta charset="UTF-8">
+<meta name="_csrf" content="${_csrf.token}" />
+<!-- default header name is X-CSRF-TOKEN -->
+<meta name="_csrf_header" content="${_csrf.headerName}" />
 <title>Receipt Recognizer BME</title>
 <style type="text/css">
 body {
 	background-image: url('http://crunchify.com/bg.png');
 }
-
 
 .button {
 	background-color: #4CAF50; /* Green */
@@ -25,47 +28,50 @@ body {
 </head>
 <body>
 	<div id="containerDiv">
-		<p>
-			Company: <div id = "company"></div>
+		<p>Company:
+		<div id="company"></div>
 		</p>
-		<p>
-			Address: <div id = "address"></div>
+		<p>Address:
+		<div id="address"></div>
 		</p>
-		<p>
-			Date: <div id = "date"></div>
+		<p>Date:
+		<div id="date"></div>
 		</p>
-		<p>
-			Final value: <div id = "final"></div>
+		<p>Final value:
+		<div id="final"></div>
 		</p>
-		<p>
-			
-		</p>
+		<p></p>
 	</div>
 
 	<script>
-	window.onload = function() {
-		var receipt;
-		var ctx = "${pageContext.request.contextPath}";
-		
-		$.ajax({
-			'url' : ctx + '/receiptinfo/${szamlanev}',
-			'type' : 'GET',
-			'success' : function(data) {
-				receipt = data;
-				printData(data);
-			},
-			'error' : function(request, error) {
-				console.log("Request: " + JSON.stringify(request));
+		window.onload = function() {
+			var receipt;
+			var ctx = "${pageContext.request.contextPath}";
+
+			var token = $("meta[name='_csrf']").attr("content");
+			$.ajaxPrefilter(function(options, originalOptions, jqXHR) {
+				jqXHR.setRequestHeader('X-CSRF-Token', token);
+			});
+
+			$.ajax({
+				'url' : ctx + '/receiptinfo/${szamlanev}',
+				'type' : 'GET',
+				'success' : function(data) {
+					receipt = data;
+					printData(data);
+				},
+				'error' : function(request, error) {
+					console.log("Request: " + JSON.stringify(request));
+				}
+			});
+
+			printData = function(data) {
+				$("#company").text(data.company);
+				$("#address").text(data.address);
+				$("#date").text(new Date(data.date));
+				$("#final").text(data.finalValue);
 			}
-		});
-		
-		printData = function(data){
-			$("#company").text(data.company);
-			$("#address").text(data.address);
-			$("#date").text(new Date(data.date));
-			$("#final").text(data.finalValue);
 		}
-	}
 	</script>
 </body>
 </html>
