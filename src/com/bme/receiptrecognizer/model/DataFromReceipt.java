@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DataFromReceipt {
+	private String name;
+	
 	private Date date;
 	
 	private String address;
@@ -53,6 +55,14 @@ public class DataFromReceipt {
 
 	public void setItems(Map<String, Integer> items) {
 		this.items = items;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 	
