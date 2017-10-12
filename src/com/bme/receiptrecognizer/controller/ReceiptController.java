@@ -8,13 +8,16 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -56,7 +59,7 @@ public class ReceiptController {
 		this.textParserService = textParserService;
 	}
 
-	@RequestMapping("/")
+	@RequestMapping("/receipt/")
 	public String index() {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String name = auth.getName(); // get logged in username
@@ -69,7 +72,7 @@ public class ReceiptController {
 		return new ModelAndView("receipt", "szamlanev", name);
 	}
 
-	@RequestMapping(value = "/upload", method = RequestMethod.POST)
+	@RequestMapping(value = "/receipt/upload", method = RequestMethod.POST)
 	public ModelAndView singleFileUpload(@RequestParam("textFile") MultipartFile file,
 			@RequestParam("fileName") String fileName) {
 		if (file.isEmpty()) {
@@ -86,7 +89,7 @@ public class ReceiptController {
 		return new ModelAndView("index");
 	}
 
-	@RequestMapping(value = "/processimage/{name}", method = RequestMethod.GET)
+	@RequestMapping(value = "/receipt/processimage/{name}", method = RequestMethod.GET)
 	public ModelAndView processImage(HttpServletRequest request, @PathVariable String name) throws Exception {
 		App.performRecognition(ClientSettings.RESOURCE_URL + name, ClientSettings.RESOURCE_URL + name + ".result.xml",
 				"Hungarian");
@@ -94,13 +97,13 @@ public class ReceiptController {
 	}
 
 	@ResponseBody
-	@RequestMapping(value = "/images/{name}", method = RequestMethod.GET, produces = MediaType.IMAGE_JPEG_VALUE)
+	@RequestMapping(value = "/receipt/images/{name}", method = RequestMethod.GET, produces = MediaType.IMAGE_JPEG_VALUE)
 	public byte[] image(HttpServletRequest request, @PathVariable String name) throws IOException {
 		InputStream in = new FileInputStream(ClientSettings.RESOURCE_URL + name);
 		return IOUtils.toByteArray(in);
 	}
 
-	@RequestMapping(value = "/imageinfo/{name}", method = RequestMethod.GET, produces = {
+	@RequestMapping(value = "/receipt/imageinfo/{name}", method = RequestMethod.GET, produces = {
 			"application/json; charset=UTF-8" })
 	public @ResponseBody Receipt imageInfo(HttpServletRequest request, @PathVariable String name) throws IOException {
 		Receipt receipt = xmlParserService.parsexml(name + ".result.xml");
@@ -109,19 +112,19 @@ public class ReceiptController {
 		return receipt;
 	}
 
-	@RequestMapping(value = "/changechar", method = RequestMethod.POST)
+	@RequestMapping(value = "/receipt/changechar", method = RequestMethod.POST)
 	public ModelAndView changeChar(@RequestBody Receipt receipt) {
 		xmlWriterService.updateXmlFile(receipt);
 		return new ModelAndView("receipt", "szamlanev", receipt.getName());
 	}
 
-	@RequestMapping(value = "/receiptdetails/{name}", method = RequestMethod.GET, produces = {
+	@RequestMapping(value = "/receipt/receiptdetails/{name}", method = RequestMethod.GET, produces = {
 			"application/json; charset=UTF-8" })
 	public ModelAndView receiptInfo(@PathVariable String name) {
 		return new ModelAndView("receipt-info", "szamlanev", name);
 	}
 
-	@RequestMapping(value = "/receiptinfo/{name}", method = RequestMethod.GET, produces = {
+	@RequestMapping(value = "/receipt/receiptinfo/{name}", method = RequestMethod.GET, produces = {
 			"application/json; charset=UTF-8" })
 	public @ResponseBody DataFromReceipt receipInfo(HttpServletRequest request, @PathVariable String name) {
 		Receipt receipt = xmlParserService.parsexml(name + ".result.xml");
@@ -133,4 +136,5 @@ public class ReceiptController {
 		data.setFinalValue(textParserService.getFinalAmount(receipt));
 		return data;
 	}
+
 }
