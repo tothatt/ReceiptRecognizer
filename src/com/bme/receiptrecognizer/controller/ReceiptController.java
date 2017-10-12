@@ -1,5 +1,6 @@
 package com.bme.receiptrecognizer.controller;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -61,9 +62,11 @@ public class ReceiptController {
 
 	@RequestMapping("/receipt/")
 	public String index() {
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		String name = auth.getName(); // get logged in username
-		System.out.println(name);
+		if (Files.notExists(Paths.get(ClientSettings.RESOURCE_URL + SecurityContextHolder.getContext().getAuthentication().getName()))) {
+			boolean success = (new File(ClientSettings.RESOURCE_URL + SecurityContextHolder.getContext().getAuthentication().getName())).mkdir();
+			if(success)
+				System.out.println("Fodler creation succesful");
+		}
 		return "index";
 	}
 
@@ -80,7 +83,7 @@ public class ReceiptController {
 		}
 		try {
 			byte[] bytes = file.getBytes();
-			Path path = Paths.get(ClientSettings.RESOURCE_URL + fileName);
+			Path path = Paths.get(ClientSettings.RESOURCE_URL + SecurityContextHolder.getContext().getAuthentication().getName() + "/" + fileName);
 			Files.write(path, bytes);
 
 		} catch (IOException e) {
@@ -91,7 +94,7 @@ public class ReceiptController {
 
 	@RequestMapping(value = "/receipt/processimage/{name}", method = RequestMethod.GET)
 	public ModelAndView processImage(HttpServletRequest request, @PathVariable String name) throws Exception {
-		App.performRecognition(ClientSettings.RESOURCE_URL + name, ClientSettings.RESOURCE_URL + name + ".result.xml",
+		App.performRecognition(ClientSettings.RESOURCE_URL + SecurityContextHolder.getContext().getAuthentication().getName() + "/" + name, ClientSettings.RESOURCE_URL + name + ".result.xml",
 				"Hungarian");
 		return new ModelAndView("receipt", "szamlanev", name);
 	}
@@ -99,16 +102,16 @@ public class ReceiptController {
 	@ResponseBody
 	@RequestMapping(value = "/receipt/images/{name}", method = RequestMethod.GET, produces = MediaType.IMAGE_JPEG_VALUE)
 	public byte[] image(HttpServletRequest request, @PathVariable String name) throws IOException {
-		InputStream in = new FileInputStream(ClientSettings.RESOURCE_URL + name);
+		InputStream in = new FileInputStream(ClientSettings.RESOURCE_URL + SecurityContextHolder.getContext().getAuthentication().getName() + "/" + name);
 		return IOUtils.toByteArray(in);
 	}
 
 	@RequestMapping(value = "/receipt/imageinfo/{name}", method = RequestMethod.GET, produces = {
 			"application/json; charset=UTF-8" })
 	public @ResponseBody Receipt imageInfo(HttpServletRequest request, @PathVariable String name) throws IOException {
-		Receipt receipt = xmlParserService.parsexml(name + ".result.xml");
+		Receipt receipt = xmlParserService.parsexml(ClientSettings.RESOURCE_URL + SecurityContextHolder.getContext().getAuthentication().getName() + "/" + name + ".result.xml");
 		receipt.setLines(textParserService.extractLinesFromReceipt(receipt));
-		receipt.setImageUrl(ClientSettings.RESOURCE_URL + name);
+		receipt.setImageUrl(ClientSettings.RESOURCE_URL + SecurityContextHolder.getContext().getAuthentication().getName() + "/" + name);
 		return receipt;
 	}
 
@@ -127,7 +130,7 @@ public class ReceiptController {
 	@RequestMapping(value = "/receipt/receiptinfo/{name}", method = RequestMethod.GET, produces = {
 			"application/json; charset=UTF-8" })
 	public @ResponseBody DataFromReceipt receipInfo(HttpServletRequest request, @PathVariable String name) {
-		Receipt receipt = xmlParserService.parsexml(name + ".result.xml");
+		Receipt receipt = xmlParserService.parsexml(ClientSettings.RESOURCE_URL + SecurityContextHolder.getContext().getAuthentication().getName() + "/" + name + ".result.xml");
 		receipt.setLines(textParserService.extractLinesFromReceipt(receipt));
 		DataFromReceipt data = new DataFromReceipt();
 		data.setDate(textParserService.getDatesFromReceipt(receipt));

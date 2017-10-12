@@ -23,9 +23,9 @@ public class XmlParserService {
 		try {
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 			DocumentBuilder db;
-			receipt.setXmlUrl(ClientSettings.RESOURCE_URL + string);
+			receipt.setXmlUrl(string);
 			db = dbf.newDocumentBuilder();
-			Document doc = db.parse(ClientSettings.RESOURCE_URL + string);
+			Document doc = db.parse(string);
 			NodeList pageNode = doc.getElementsByTagName("page");
 			receipt.setImgWidth(Integer.parseInt(((Element) pageNode.item(0)).getAttribute("width")));
 			receipt.setImgHeight(Integer.parseInt(((Element) pageNode.item(0)).getAttribute("height")));
