@@ -8,26 +8,30 @@
         http://www.springframework.org/schema/mvc/spring-mvc.xsd
         http://www.springframework.org/schema/context 
         http://www.springframework.org/schema/context/spring-context.xsd">
-        
+
 	<!-- Controller declarations -->
 	<bean id="receiptController" class="com.bme.receiptrecognizer.controller.ReceiptController">
 		<property name="textParserService" ref="textParserService" />
 		<property name="xmlParserService" ref="xmlParserService" />
 	</bean>
-	
+
+	<bean id="authenticationController"
+		class="com.bme.receiptrecognizer.controller.AuthenticationController" />
+
+
 	<!-- Service declarations -->
 	<bean id="textParserService" class="com.bme.receiptrecognizer.service.TextParserService" />
-	
+
 	<bean id="xmlParserService" class="com.bme.receiptrecognizer.service.XmlParserService" />
-	
+
 	<bean id="xmlWriterService" class="com.bme.receiptrecognizer.service.XmlWriterService" />
- 
- 
- 	<bean id="springSecurityFilterChain" class="org.springframework.web.filter.DelegatingFilterProxy"/>
- 
+
+
+	<bean id="springSecurityFilterChain" class="org.springframework.web.filter.DelegatingFilterProxy" />
+
 	<context:component-scan base-package="com.bme.receiptrecognizer" />
-	
-	<mvc:default-servlet-handler/>
+
+	<mvc:default-servlet-handler />
 
 	<context:annotation-config />
 
@@ -35,24 +39,24 @@
 
 
 	<mvc:annotation-driven />
- 
+
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<property name="viewClass"
 			value="org.springframework.web.servlet.view.JstlView" />
 		<property name="prefix" value="/WEB-INF/jsp/" />
 		<property name="suffix" value=".jsp" />
-		<property name="contentType" value="application/json;charset=UTF-8"/>
+		<property name="contentType" value="application/json;charset=UTF-8" />
 	</bean>
-	
+
 	<bean id="multipartResolver"
-        class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-        <!-- max upload size in bytes -->
-        <property name="maxUploadSize" value="20971520" /> <!-- 20MB -->
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- max upload size in bytes -->
+		<property name="maxUploadSize" value="20971520" /> <!-- 20MB -->
 
-        <!-- max size of file in memory (in bytes) -->
-        <property name="maxInMemorySize" value="1048576" /> <!-- 1MB -->
+		<!-- max size of file in memory (in bytes) -->
+		<property name="maxInMemorySize" value="1048576" /> <!-- 1MB -->
 
-    </bean>
- 
+	</bean>
+
 </beans>

@@ -2,7 +2,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="_csrf" content="${_csrf.token}" />
-<!-- default header name is X-CSRF-TOKEN -->
+<meta name="_csrf_parameter" content="_csrf" />
 <meta name="_csrf_header" content="${_csrf.headerName}" />
 <title>Receipt Recognizer BME</title>
 <style type="text/css">
@@ -33,7 +33,7 @@ canvas {
 	<div id="containerDiv">
 		<canvas id="canvas"></canvas>
 		<img style="display: none;" id="receipt" alt="image"
-			src="${pageContext.request.contextPath}/images/${szamlanev}" />
+			src="${pageContext.request.contextPath}/receipt/images/${szamlanev}" />
 		<textarea id="textFromReceipt" cols="50">
 		</textarea>
 	</div>
@@ -80,7 +80,7 @@ canvas {
 			});
 		
 		$.ajax({
-			'url' : ctx + '/imageinfo/${szamlanev}',
+			'url' : ctx + '/receipt/imageinfo/${szamlanev}',
 			'type' : 'GET',
 			'success' : function(data) {
 				receipt = data;
@@ -127,8 +127,11 @@ canvas {
 		});
 		
 		updateXml = function(){
+			$.ajaxPrefilter(function (options, originalOptions, jqXHR) {
+				  jqXHR.setRequestHeader('X-CSRF-Token', token);
+				});
 			$.ajax({
-				'url' : ctx + '/changechar',
+				'url' : ctx + '/receipt/changechar',
 				'type' : 'POST',
 				'contentType': 'application/json;charset=UTF-8',
 				'data' : JSON.stringify(receipt),

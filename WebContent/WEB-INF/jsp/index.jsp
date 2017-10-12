@@ -1,7 +1,7 @@
 <html>
 <head>
 <meta name="_csrf" content="${_csrf.token}" />
-<!-- default header name is X-CSRF-TOKEN -->
+<meta name="_csrf_parameter" content="_csrf" />
 <meta name="_csrf_header" content="${_csrf.headerName}" />
 <title>Receipt Recognizer BME</title>
 <style type="text/css">
@@ -29,8 +29,9 @@ body {
 		<h2>
 			Receipt recognizer BME<br> <br>
 		</h2>
-		<form method="POST" action="${pageContext.request.contextPath}/upload"
+		<form method="POST" action="${pageContext.request.contextPath}/upload?${_csrf.parameterName}=${_csrf.token}"
 			enctype="multipart/form-data">
+			
 			<p>
 				Name of receipt:<input type="text" name="fileName" />
 			</p>
@@ -63,7 +64,7 @@ body {
 		processImage = function() {
 			var name = $("#szamlaNev").val();
 			$.ajax({
-				'url' : ctx + '/processimage/' + name,
+				'url' : ctx + '/receipt/processimage/' + name,
 				'type' : 'GET',
 				'success' : function() {
 					console.log('Receipt updated');

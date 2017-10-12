@@ -3,19 +3,18 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 						http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
 
-	<http pattern="/favicon.ico" security="none" />
-
-	<http auto-config="true" use-expressions="true">
-		<intercept-url pattern="/**" access="isAuthenticated()" />
+	<http auto-config='true'>
+		<intercept-url pattern="/receipt/**" access="hasRole('ROLE_ADMIN')" />
+		<form-login login-page="/login" authentication-failure-url="/error"
+			username-parameter="username" password-parameter="password" />
+		<csrf />
+		<logout logout-success-url="/logout" />
 	</http>
-
-
 
 	<authentication-manager>
 		<authentication-provider>
 			<user-service>
-				<user name="tothatt" password="123123"
-					authorities="ADMIN" />
+				<user name="test" password="test" authorities="ROLE_ADMIN" />
 			</user-service>
 		</authentication-provider>
 	</authentication-manager>

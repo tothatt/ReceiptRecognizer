@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="_csrf" content="${_csrf.token}" />
-<!-- default header name is X-CSRF-TOKEN -->
+<meta name="_csrf_parameter" content="_csrf" />
 <meta name="_csrf_header" content="${_csrf.headerName}" />
 <title>Receipt Recognizer BME</title>
 <style type="text/css">
@@ -54,7 +54,7 @@ body {
 			});
 
 			$.ajax({
-				'url' : ctx + '/receiptinfo/${szamlanev}',
+				'url' : ctx + '/receipt/receiptinfo/${szamlanev}',
 				'type' : 'GET',
 				'success' : function(data) {
 					receipt = data;
