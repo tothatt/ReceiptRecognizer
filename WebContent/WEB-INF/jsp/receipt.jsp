@@ -33,7 +33,7 @@ canvas {
 	<div id="containerDiv">
 		<canvas id="canvas"></canvas>
 		<img style="display: none;" id="receipt" alt="image"
-			src="${pageContext.request.contextPath}/receipt/images/${szamlanev}" />
+			src="${pageContext.request.contextPath}/images/${szamlanev}" />
 		<textarea id="textFromReceipt" cols="50">
 		</textarea>
 	</div>
@@ -80,9 +80,13 @@ canvas {
 			});
 		
 		$.ajax({
-			'url' : ctx + '/receipt/imageinfo/${szamlanev}',
+			'url' : ctx + '/imageinfo/${szamlanev}',
 			'type' : 'GET',
 			'success' : function(data) {
+				if (data.errCode) {
+		            // data.redirect contains the string URL to redirect to
+		            window.location.href = ctx + '/error/' + data.errCode;
+		        }
 				receipt = data;
 				printRects(data);
 			},
@@ -131,7 +135,7 @@ canvas {
 				  jqXHR.setRequestHeader('X-CSRF-Token', token);
 				});
 			$.ajax({
-				'url' : ctx + '/receipt/changechar',
+				'url' : ctx + '/changechar',
 				'type' : 'POST',
 				'contentType': 'application/json;charset=UTF-8',
 				'data' : JSON.stringify(receipt),

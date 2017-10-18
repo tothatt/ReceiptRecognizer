@@ -54,9 +54,13 @@ body {
 			});
 
 			$.ajax({
-				'url' : ctx + '/receipt/receiptinfo/${szamlanev}',
+				'url' : ctx + '/receiptinfo/${szamlanev}',
 				'type' : 'GET',
 				'success' : function(data) {
+					if (data.redirect) {
+			            // data.redirect contains the string URL to redirect to
+			            window.location.href = ctx + '/error/' + data.errCode;
+			        }
 					receipt = data;
 					printData(data);
 				},

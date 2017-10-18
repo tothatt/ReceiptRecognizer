@@ -4,11 +4,14 @@
 						http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
 
 	<http auto-config='true'>
-		<intercept-url pattern="/receipt/**" access="hasRole('ROLE_ADMIN')" />
-		<form-login login-page="/login" authentication-failure-url="/error"
+	    <intercept-url pattern="/login*" access="permitAll"/>
+	    <intercept-url pattern="/**" access="isAuthenticated()" />
+		<form-login login-page="/login"  default-target-url="/" authentication-failure-url="/error"
 			username-parameter="username" password-parameter="password" />
-		<csrf />
 		<logout logout-success-url="/logout" />
+		
+		<csrf />
+		
 	</http>
 
 	<authentication-manager>

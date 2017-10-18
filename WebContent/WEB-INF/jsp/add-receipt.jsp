@@ -64,7 +64,7 @@ body {
 		processImage = function() {
 			var name = $("#szamlaNev").val();
 			$.ajax({
-				'url' : ctx + '/receipt/processimage/' + name,
+				'url' : ctx + '/processimage/' + name,
 				'type' : 'GET',
 				'success' : function() {
 					console.log('Receipt updated');

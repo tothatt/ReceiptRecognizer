@@ -1,1 +1,1 @@
-java -jar target/ReceiptRecognizer.jar
+java -jar target/ReceiptRecognizer.jar -DRESOURCE_URL="C:/workspace/ReceiptRecognizer/resources/"

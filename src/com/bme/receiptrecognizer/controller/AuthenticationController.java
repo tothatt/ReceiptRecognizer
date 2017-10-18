@@ -19,6 +19,12 @@ public class AuthenticationController {
 		return "login";
 
 	}
+	
+	@RequestMapping(value = "/error404")
+	public String error404() {
+		return "error404";
+	}
+
 
 	@RequestMapping("/login")
 	public String login() {

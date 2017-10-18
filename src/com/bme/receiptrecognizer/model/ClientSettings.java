@@ -11,6 +11,6 @@ public class ClientSettings {
 	// Password should be sent to your e-mail after application was created
 	public static final String PASSWORD = "DtnRh5tHkXrbQEMV5XZWv4KK";
 	
-	public static final String RESOURCE_URL = "C:/workspace/ReceiptRecognizer/resources/";
+	public static final String RESOURCE_URL = System.getProperty("RESOURCE_URL");
 	
 }

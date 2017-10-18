@@ -18,6 +18,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import com.bme.receiptrecognizer.exceptions.ReceiptException;
 import com.bme.receiptrecognizer.model.Receipt;
 import com.bme.receiptrecognizer.model.XmlChar;
 
@@ -56,18 +57,8 @@ public class XmlWriterService {
 
 			System.out.println("Done");
 
-		} catch (ParserConfigurationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (TransformerException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace(); 
-		} catch (SAXException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (Exception e) {
+			throw new ReceiptException("1001");
 		}
 	}
 }
