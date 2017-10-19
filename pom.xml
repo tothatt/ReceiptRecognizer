@@ -167,5 +167,29 @@
 			<artifactId>jaxws-rt</artifactId>
 			<version>2.2.7</version>
 		</dependency>
+
+		<!-- JPA Vendor -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>4.1.9.Final</version>
+		</dependency>
+
+		<!-- IN MEMORY Database and JDBC Driver -->
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>2.2.8</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-orm -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>3.1.1.RELEASE</version>
+		</dependency>
+
+
+
 	</dependencies>
 </project>

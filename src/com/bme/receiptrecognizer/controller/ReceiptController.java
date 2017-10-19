@@ -34,7 +34,9 @@ import com.abbyy.ocrsdk.App;
 import com.bme.receiptrecognizer.exceptions.ReceiptException;
 import com.bme.receiptrecognizer.model.ClientSettings;
 import com.bme.receiptrecognizer.model.DataFromReceipt;
+import com.bme.receiptrecognizer.model.Item;
 import com.bme.receiptrecognizer.model.Receipt;
+import com.bme.receiptrecognizer.service.DataFromReceiptService;
 import com.bme.receiptrecognizer.service.TextParserService;
 import com.bme.receiptrecognizer.service.XmlParserService;
 import com.bme.receiptrecognizer.service.XmlWriterService;
@@ -47,10 +49,17 @@ public class ReceiptController {
 	private XmlWriterService xmlWriterService;
 
 	private TextParserService textParserService;
+	
+	private DataFromReceiptService dataFromReceiptService;
 
 	@Autowired
 	public void setXmlParserService(XmlParserService xmlParserService) {
 		this.xmlParserService = xmlParserService;
+	}
+	
+	@Autowired
+	public void setDataFromReceiptService(DataFromReceiptService dataFromReceiptService) {
+		this.dataFromReceiptService = dataFromReceiptService;
 	}
 
 	@Autowired
@@ -160,6 +169,7 @@ public class ReceiptController {
 		data.setAddress(textParserService.getAddressesFromReceipt(receipt));
 		data.setCompany(textParserService.getCompanyNameFromReceipt(receipt));
 		data.setFinalValue(textParserService.getFinalAmount(receipt));
+		dataFromReceiptService.add(data);
 		return data;
 	}
 
@@ -172,25 +182,25 @@ public class ReceiptController {
 	@RequestMapping(value = "/allreceiptdata", method = RequestMethod.GET, produces = {
 			"application/json; charset=UTF-8" })
 	public @ResponseBody List<DataFromReceipt> receipInfos(HttpServletRequest request) {
-		List<DataFromReceipt> data = new ArrayList<>();
-		Receipt receipt;
-		final FileNameExtensionFilter extensionFilter = new FileNameExtensionFilter(null, "xml");
-		final File file = new File(
-				ClientSettings.RESOURCE_URL + SecurityContextHolder.getContext().getAuthentication().getName());
-		for (final File child : file.listFiles()) {
-			if (extensionFilter.accept(child)) {
-				receipt = xmlParserService.parsexml(ClientSettings.RESOURCE_URL
-						+ SecurityContextHolder.getContext().getAuthentication().getName() + "/" + child.getName());
-				receipt.setLines(textParserService.extractLinesFromReceipt(receipt));
-				DataFromReceipt receiptData = new DataFromReceipt();
-				receiptData.setName(child.getName().replace(".result.xml", ""));
-				receiptData.setDate(textParserService.getDatesFromReceipt(receipt));
-				receiptData.setAddress(textParserService.getAddressesFromReceipt(receipt));
-				receiptData.setCompany(textParserService.getCompanyNameFromReceipt(receipt));
-				receiptData.setFinalValue(textParserService.getFinalAmount(receipt));
-				data.add(receiptData);
-			}
-		}
+		List<DataFromReceipt> data = dataFromReceiptService.listAll();
+//		Receipt receipt;
+//		final FileNameExtensionFilter extensionFilter = new FileNameExtensionFilter(null, "xml");
+//		final File file = new File(
+//				ClientSettings.RESOURCE_URL + SecurityContextHolder.getContext().getAuthentication().getName());
+//		for (final File child : file.listFiles()) {
+//			if (extensionFilter.accept(child)) {
+//				receipt = xmlParserService.parsexml(ClientSettings.RESOURCE_URL
+//						+ SecurityContextHolder.getContext().getAuthentication().getName() + "/" + child.getName());
+//				receipt.setLines(textParserService.extractLinesFromReceipt(receipt));
+//				DataFromReceipt receiptData = new DataFromReceipt();
+//				receiptData.setName(child.getName().replace(".result.xml", ""));
+//				receiptData.setDate(textParserService.getDatesFromReceipt(receipt));
+//				receiptData.setAddress(textParserService.getAddressesFromReceipt(receipt));
+//				receiptData.setCompany(textParserService.getCompanyNameFromReceipt(receipt));
+//				receiptData.setFinalValue(textParserService.getFinalAmount(receipt));
+//				data.add(receiptData);
+//			}
+//		}
 
 		return data;
 	}

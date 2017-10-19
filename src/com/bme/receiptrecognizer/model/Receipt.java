@@ -1,22 +1,53 @@
 package com.bme.receiptrecognizer.model;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.MapKeyClass;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+@Entity
 public class Receipt {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id", updatable = false, nullable = false)
+	private int id;
+
+	@Column(name = "name", nullable = false)
 	private String name = "";
 	
-	private  List<XmlChar> chars = new ArrayList<>();
-	
+	@Column(name = "chars")
+	@ElementCollection(targetClass = XmlChar.class, fetch = FetchType.EAGER)
+	private List<XmlChar> chars = new ArrayList<>();
+
+	@Column(name = "imgWidth", nullable = false)
 	private int imgWidth = 0;
-	
+
+	@Column(name = "imgHeight", nullable = false)
 	private int imgHeight = 0;
-	
+
+	@Column(name = "imageUrl", nullable = false)
 	private String imageUrl = "";
-	
+
+	@Column(name = "xmlUrl", nullable = false)
 	private String xmlUrl = "";
-	
+
+	@JsonIgnore
+	@Column(name = "lines", nullable = false)
+	@ElementCollection(targetClass = String.class, fetch = FetchType.EAGER)
+	@MapKeyClass(String.class)
 	private Map<Integer, String> lines;
-	
+
 	public String getName() {
 		return name;
 	}
@@ -71,6 +102,14 @@ public class Receipt {
 
 	public void setLines(Map<Integer, String> lines) {
 		this.lines = lines;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 }
