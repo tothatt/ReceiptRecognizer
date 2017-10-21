@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
@@ -12,6 +13,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MapKeyClass;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -26,8 +29,12 @@ public class Receipt {
 	@Column(name = "name", nullable = false)
 	private String name = "";
 	
+	@Column(name = "user", nullable = false)
+	private String user = "";
+
 	@Column(name = "chars")
 	@ElementCollection(targetClass = XmlChar.class, fetch = FetchType.EAGER)
+	@OneToMany(cascade = CascadeType.ALL)
 	private List<XmlChar> chars = new ArrayList<>();
 
 	@Column(name = "imgWidth", nullable = false)
@@ -42,10 +49,9 @@ public class Receipt {
 	@Column(name = "xmlUrl", nullable = false)
 	private String xmlUrl = "";
 
-	@JsonIgnore
 	@Column(name = "lines", nullable = false)
 	@ElementCollection(targetClass = String.class, fetch = FetchType.EAGER)
-	@MapKeyClass(String.class)
+	@MapKeyClass(Integer.class)
 	private Map<Integer, String> lines;
 
 	public String getName() {
@@ -111,5 +117,14 @@ public class Receipt {
 	public void setId(int id) {
 		this.id = id;
 	}
+
+	public String getUser() {
+		return user;
+	}
+
+	public void setUser(String user) {
+		this.user = user;
+	}
+
 	
 }

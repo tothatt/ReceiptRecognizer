@@ -16,13 +16,26 @@ public class XmlChar {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", updatable = false, nullable = false)
 	private int id;
-
+	
+	@Column(name = "b")
 	private int b;
+	
+	@Column(name = "r")
 	private int r;
+
+	@Column(name = "t")
 	private int t;
+
+	@Column(name = "l")
 	private int l;
+
+	@Column(name = "s")
 	private String s;
+
+	@Column(name = "suspicious")
 	private boolean suspicious = false;
+	
+	@Column(name = "lineId")
 	private int lineId;
 
 	public int getB() {

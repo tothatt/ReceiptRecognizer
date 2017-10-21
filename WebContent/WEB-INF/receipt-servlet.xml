@@ -16,6 +16,7 @@
 		<property name="textParserService" ref="textParserService" />
 		<property name="xmlParserService" ref="xmlParserService" />
 		<property name="dataFromReceiptService" ref="dataFromReceiptService" />
+		<property name="receiptService" ref="receiptService" />
 	</bean>
 
 	<bean id="authenticationController"
@@ -33,8 +34,15 @@
 		class="com.bme.receiptrecognizer.service.DataFromReceiptService">
 		<property name="dataFromReceiptDao" ref="dataFromReceiptDao" />
 	</bean>
+	
+	<bean id="receiptService"
+		class="com.bme.receiptrecognizer.service.ReceiptService">
+		<property name="receiptDao" ref="receiptDao" />
+	</bean>
 
 	<bean id="dataFromReceiptDao" class="com.bme.receiptrecognizer.dao.DataFromReceiptDao" />
+
+	<bean id="receiptDao" class="com.bme.receiptrecognizer.dao.ReceiptDao" />
 
 	<bean id="springSecurityFilterChain" class="org.springframework.web.filter.DelegatingFilterProxy" />
 

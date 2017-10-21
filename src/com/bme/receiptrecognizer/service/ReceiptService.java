@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.bme.receiptrecognizer.dao.ReceiptDao;
+import com.bme.receiptrecognizer.model.DataFromReceipt;
 import com.bme.receiptrecognizer.model.Receipt;
 
 @Component
@@ -16,7 +17,7 @@ public class ReceiptService {
 	private ReceiptDao receiptDao;
 
 	@Autowired
-	public void setDataFromReceiptDao(ReceiptDao receiptDao) {
+	public void setReceiptDao(ReceiptDao receiptDao) {
 		this.receiptDao = receiptDao;
 	}
 	
@@ -31,11 +32,13 @@ public class ReceiptService {
 			receiptDao.persist(receipt);
 		}
 	}
-
-	@Transactional(readOnly = true)
-	public List<Receipt> listAll() {
-		return receiptDao.findAll();
-
+	
+	public List<Receipt> listAllByUser(String user) {
+		return receiptDao.findAllByUser(user);
 	}
 
+	public Receipt getReceipt(String name, String user) {
+		return receiptDao.findByUser(name, user);
+
+	}
 }

@@ -18,9 +18,11 @@ public class Item {
 		this.name = name;
 		this.price = price;
 	}
-
+	
+	@Column(name = "name")
 	private String name;
 	
+	@Column(name = "price")
 	private Integer price;
 
 	public String getName() {

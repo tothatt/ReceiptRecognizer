@@ -32,9 +32,13 @@ public class DataFromReceiptService {
 		}
 	}
 
-	@Transactional(readOnly = true)
-	public List<DataFromReceipt> listAll() {
-		return dataFromReceiptDao.findAll();
+	public List<DataFromReceipt> listAllByUser(String user) {
+		return dataFromReceiptDao.findAllByUser(user);
+
+	}
+	
+	public DataFromReceipt getDataFromReceipt(String name, String user) {
+		return dataFromReceiptDao.findByUser(name, user);
 
 	}
 

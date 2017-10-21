@@ -22,6 +22,9 @@ public class DataFromReceipt {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", updatable = false, nullable = false)
 	private int id;
+	
+	@Column(name = "user")
+	private String user;
 
 	@Column(name = "name")
 	private String name;
@@ -97,5 +100,14 @@ public class DataFromReceipt {
 	public void setId(int id) {
 		this.id = id;
 	}
+
+	public String getUser() {
+		return user;
+	}
+
+	public void setUser(String user) {
+		this.user = user;
+	}
+	
 	
 }

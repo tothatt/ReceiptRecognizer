@@ -4,10 +4,15 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceException;
+import javax.persistence.Query;
 
+import org.hibernate.exception.SQLGrammarException;
+import org.hsqldb.HsqlException;
 import org.springframework.stereotype.Component;
 
 import com.bme.receiptrecognizer.model.DataFromReceipt;
+import com.bme.receiptrecognizer.model.Receipt;
 
 @Component
 public class DataFromReceiptDao {
@@ -19,8 +24,21 @@ public class DataFromReceiptDao {
 		em.persist(dataFromReceipt);
 	}
 
-	public List<DataFromReceipt> findAll() {
-		return em.createQuery("SELECT data FROM DataFromReceipt data").getResultList();
+	public List<DataFromReceipt> findAllByUser(String user) {
+		Query q =  em.createNativeQuery("SELECT data FROM DataFromReceipt data where user = ?1");
+		q.setParameter(1, user);
+		return q.getResultList();
+	}
+	
+	public DataFromReceipt findByUser(String name, String user) {
+		Query q =  em.createNativeQuery("SELECT data FROM DataFromReceipt data where user = ?1 and name = ?2");
+		q.setParameter(1, user);
+		q.setParameter(2, name);
+		try {
+			return (DataFromReceipt) q.getSingleResult();
+		} catch (HsqlException|PersistenceException|SQLGrammarException e) {
+			return null;
+		}
 	}
 
 }
