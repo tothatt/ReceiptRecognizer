@@ -28,11 +28,12 @@
 	<bean id="xmlParserService" class="com.bme.receiptrecognizer.service.XmlParserService" />
 
 	<bean id="xmlWriterService" class="com.bme.receiptrecognizer.service.XmlWriterService" />
-	
-	<bean id="dataFromReceiptService" class="com.bme.receiptrecognizer.service.DataFromReceiptService" >
+
+	<bean id="dataFromReceiptService"
+		class="com.bme.receiptrecognizer.service.DataFromReceiptService">
 		<property name="dataFromReceiptDao" ref="dataFromReceiptDao" />
 	</bean>
-	
+
 	<bean id="dataFromReceiptDao" class="com.bme.receiptrecognizer.dao.DataFromReceiptDao" />
 
 	<bean id="springSecurityFilterChain" class="org.springframework.web.filter.DelegatingFilterProxy" />
@@ -66,10 +67,11 @@
 		<property name="maxInMemorySize" value="1048576" /> <!-- 1MB -->
 	</bean>
 
-	<bean id="dataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<bean class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close" id="dataSource">
 		<property name="driverClassName" value="org.hsqldb.jdbcDriver" />
-		<property name="url" value="jdbc:hsqldb:mem://receiptRecognizerDb" />
+		<property name="url"
+			value="jdbc:hsqldb:file:#{systemProperties.DATABASE_FILE_URL}/ReceiptRecognizerDB" />
 		<property name="username" value="sa" />
 		<property name="password" value="" />
 	</bean>
@@ -91,5 +93,5 @@
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 	<tx:annotation-driven transaction-manager="transactionManager" />
-	
+
 </beans>
