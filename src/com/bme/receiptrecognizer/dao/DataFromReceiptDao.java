@@ -22,16 +22,16 @@ public class DataFromReceiptDao {
 
 	public void persist(DataFromReceipt dataFromReceipt) {
 		em.persist(dataFromReceipt);
-	}
+	}	
 
 	public List<DataFromReceipt> findAllByUser(String user) {
-		Query q =  em.createNativeQuery("SELECT data FROM DataFromReceipt data where user = ?1");
+		Query q =  em.createNativeQuery("SELECT * FROM datafromreceipt where datafromreceipt_user = ?1");
 		q.setParameter(1, user);
 		return q.getResultList();
 	}
 	
 	public DataFromReceipt findByUser(String name, String user) {
-		Query q =  em.createNativeQuery("SELECT data FROM DataFromReceipt data where user = ?1 and name = ?2");
+		Query q =  em.createNativeQuery("SELECT * FROM datafromreceipt where datafromreceipt_user = ?1 and datafromreceipt_name = ?2", DataFromReceipt.class);
 		q.setParameter(1, user);
 		q.setParameter(2, name);
 		try {

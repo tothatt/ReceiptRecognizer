@@ -12,44 +12,44 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.MapKeyClass;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "receipt")
 public class Receipt {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id", updatable = false, nullable = false)
-	private int id;
+	@GeneratedValue(strategy = GenerationType.TABLE)
+	@Column(name = "receipt_id")
+	private int receipt_id;
 
-	@Column(name = "name", nullable = false)
+	@Column(name = "receipt_name")
 	private String name = "";
-	
-	@Column(name = "user", nullable = false)
+
+	@Column(name = "receipt_user")
 	private String user = "";
 
-	@Column(name = "chars")
-	@ElementCollection(targetClass = XmlChar.class, fetch = FetchType.EAGER)
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.EAGER)
+	@JoinColumn(name = "receipt_id")
 	private List<XmlChar> chars = new ArrayList<>();
 
-	@Column(name = "imgWidth", nullable = false)
+	@Column(name = "receipt_imgwidth")
 	private int imgWidth = 0;
 
-	@Column(name = "imgHeight", nullable = false)
+	@Column(name = "receipt_imgheight")
 	private int imgHeight = 0;
 
-	@Column(name = "imageUrl", nullable = false)
+	@Column(name = "receipt_imageurl")
 	private String imageUrl = "";
 
-	@Column(name = "xmlUrl", nullable = false)
+	@Column(name = "receipt_xmlurl")
 	private String xmlUrl = "";
 
-	@Column(name = "lines", nullable = false)
+	@Column(name = "receipt_lines")
 	@ElementCollection(targetClass = String.class, fetch = FetchType.EAGER)
 	@MapKeyClass(Integer.class)
 	private Map<Integer, String> lines;
@@ -111,11 +111,11 @@ public class Receipt {
 	}
 
 	public int getId() {
-		return id;
+		return receipt_id;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.receipt_id = id;
 	}
 
 	public String getUser() {
@@ -126,5 +126,4 @@ public class Receipt {
 		this.user = user;
 	}
 
-	
 }

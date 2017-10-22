@@ -1,6 +1,5 @@
 package com.bme.receiptrecognizer.dao;
 
-import java.sql.ResultSet;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -12,7 +11,6 @@ import org.hibernate.exception.SQLGrammarException;
 import org.hsqldb.HsqlException;
 import org.springframework.stereotype.Component;
 
-import com.bme.receiptrecognizer.model.DataFromReceipt;
 import com.bme.receiptrecognizer.model.Receipt;
 
 @Component
@@ -25,13 +23,13 @@ public class ReceiptDao {
 	}
 
 	public List<Receipt> findAllByUser(String user) {
-		Query q = em.createNativeQuery("SELECT data FROM Receipt data where name = ?1");
+		Query q = em.createNativeQuery("SELECT * FROM receipt where receipt_name = ?1");
 		q.setParameter(1, user);
 		return q.getResultList();
 	}
 
 	public Receipt findByUser(String name, String user) {
-		Query q = em.createNativeQuery("SELECT * FROM Receipt where user = ?1 and name = ?2");
+		Query q = em.createNativeQuery("SELECT * FROM receipt where receipt_user = ?1 and receipt_name = ?2", Receipt.class);
 		q.setParameter(1, user);
 		q.setParameter(2, name);
 		try {

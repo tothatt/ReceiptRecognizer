@@ -2,40 +2,48 @@ package com.bme.receiptrecognizer.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "XmlChars")
+@Table(name = "xmlchars")
 public class XmlChar {
+	
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "receipt_id")
+    Receipt receipt;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id", updatable = false, nullable = false)
+	@GeneratedValue(strategy = GenerationType.TABLE)
+	@Column(name = "xmlchars_id")
 	private int id;
 	
-	@Column(name = "b")
+	@Column(name = "xmlchars_b")
 	private int b;
 	
-	@Column(name = "r")
+	@Column(name = "xmlchars_r")
 	private int r;
 
-	@Column(name = "t")
+	@Column(name = "xmlchars_t")
 	private int t;
 
-	@Column(name = "l")
+	@Column(name = "xmlchars_l")
 	private int l;
 
-	@Column(name = "s")
+	@Column(name = "xmlchars_s")
 	private String s;
 
-	@Column(name = "suspicious")
+	@Column(name = "xmlchars_suspicious")
 	private boolean suspicious = false;
 	
-	@Column(name = "lineId")
+	@Column(name = "xmlchars_lineid")
 	private int lineId;
 
 	public int getB() {
@@ -101,5 +109,4 @@ public class XmlChar {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
 }

@@ -75,8 +75,7 @@
 		<property name="maxInMemorySize" value="1048576" /> <!-- 1MB -->
 	</bean>
 
-	<bean class="org.apache.commons.dbcp.BasicDataSource"
-		destroy-method="close" id="dataSource">
+	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSource">
 		<property name="driverClassName" value="org.hsqldb.jdbcDriver" />
 		<property name="url"
 			value="jdbc:hsqldb:file:#{systemProperties.DATABASE_FILE_URL}/ReceiptRecognizerDB" />

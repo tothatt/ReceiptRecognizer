@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
@@ -11,38 +12,41 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
+@Table(name = "datafromreceipt")
 public class DataFromReceipt {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id", updatable = false, nullable = false)
+	@GeneratedValue(strategy = GenerationType.TABLE)
+	@Column(name = "datafromreceipt_id")
 	private int id;
 	
-	@Column(name = "user")
+	@Column(name = "datafromreceipt_user")
 	private String user;
 
-	@Column(name = "name")
+	@Column(name = "datafromreceipt_name")
 	private String name;
 
-	@Column(name = "date")
+	@Column(name = "datafromreceipt_date")
 	private Date date;
 
-	@Column(name = "address")
+	@Column(name = "datafromreceipt_address")
 	private String address;
 
-	@Column(name = "company")
+	@Column(name = "datafromreceipt_company")
 	private String company;
 
-	@Column(name = "finalValue")
+	@Column(name = "datafromreceipt_finalvalue")
 	private String finalValue;
 
-	@Column(name = "items")
-	@ElementCollection(targetClass = Item.class, fetch = FetchType.EAGER)
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.EAGER)
+	@JoinColumn(name = "datafromreceipt_id")
 	List<Item> items = new ArrayList<>();
 
 	public Date getDate() {
