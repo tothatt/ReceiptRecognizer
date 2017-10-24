@@ -24,6 +24,7 @@ body {
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
+	<button class="logout" onclick="javascript:location.href='<%=request.getContextPath()%>/logout'">Logout</button>
 	<br>
 	<div style="text-align: center">
 		<h2>

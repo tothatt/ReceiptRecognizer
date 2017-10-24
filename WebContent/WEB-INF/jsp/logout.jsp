@@ -1,13 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+    <meta charset="utf-8">
+	<meta name="_csrf" content="${_csrf.token}" />
+<meta name="_csrf_parameter" content="_csrf" />
+<meta name="_csrf_header" content="${_csrf.headerName}" />
+<title>Receipt Recognizer BME</title>
+    <title>Error 404 page not found</title>
+
+    <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900'
+          rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/animate.css">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/404.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 </head>
+
 <body>
-	<h3>You are successfully logged out!!!</h3>
+<div class="container">
+    <h1><span>You have</span> successfully logged out</h1>
+</div>
 </body>
 </html>

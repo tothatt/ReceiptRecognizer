@@ -1,65 +1,62 @@
 <html>
 <head>
-<meta charset="UTF-8">
 <meta name="_csrf" content="${_csrf.token}" />
 <meta name="_csrf_parameter" content="_csrf" />
 <meta name="_csrf_header" content="${_csrf.headerName}" />
-<title>Receipt Recognizer BME</title>
-<style type="text/css">
-body {
-	background-image: url('http://crunchify.com/bg.png');
-}
+<!-- Google Fonts -->
+<link
+	href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900'
+	rel='stylesheet' type='text/css'>
 
-canvas {
-	border: 1px solid #d3d3d3;
-}
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/resources/css/animate.css">
+<!-- Custom Stylesheet -->
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/resources/css/new.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
-.button {
-	background-color: #4CAF50; /* Green */
-	border: none;
-	color: white;
-	padding: 10px 20px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 16px;
-	margin: 20px;
-}
-</style>
+<title>Add new receipt</title>
 <script type="text/javascript"
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
-<body>
-	<div id="containerDiv">
-		<canvas id="canvas"></canvas>
-		<img style="display: none;" id="receipt" alt="image"
-			src="${pageContext.request.contextPath}/images/${szamlanev}" />
-		<textarea id="textFromReceipt" cols="50">
-		</textarea>
+<div class="container">
+	<div class="top">
+		<h1 id="title" class="hidden">
+			<span id="logo">Edit <br> <span>Receipt</span></span>
+		</h1>
+		<button class="logout" onclick="javascript:location.href='<%=request.getContextPath()%>/logout'">Logout</button>		<div class="new-container">
+			<div class="img-container">
+				<canvas id="canvas"></canvas>
+				<img style="display: none;" id="receipt" alt="image"
+					src="${pageContext.request.contextPath}/images/${szamlanev}" /> <img
+					id="output" />
+				<div class="display">
+					<select id="imageSize" onchange="sizeChange();">
+						<option value="5">Extra small</option>
+						<option value="4">Small</option>
+						<option value="3">Medium</option>
+						<option selected="selected" value="2">Large</option>
+						<option value="1">Extra Large</option>
+					</select>
+					<button onclick="printRects();">SHOW</button>
+					<button onclick="hideRects();">HIDE</button>
+					<button onclick="updateXml();">UPDATE</button>
+				</div>
+			</div>
+			<div class="actions">
+				<img class="arrow"
+					src="<%=request.getContextPath()%>/resources/images/arrow.png"
+					id="load" alt="" onclick="loadText();">
+			</div>
+			<div class="txt-area">
+				<textarea id="textFromReceipt"></textarea>
+			</div>
+		</div>
 	</div>
-	<div>
+</div>
 
-		<button class="button" onclick="hideRects();">Hide rectangles
-			and recognized chars</button>
-		<button class="button" onclick="printRects();">Show
-			rectangles and recognized chars</button>
-		<button class="button" onclick="loadText();">Load text</button>
-	</div>
-	<div>
-		<p>
-			Image size adjust: (lower the number bigger it gets): <input
-				id="imageSize" type="text" value="2" size="4" />
-		</p>
-		<p>To update xml file with changed values of characters lick the
-			button:</p>
-		<p>
-			<button class="button" onclick="sizeChange();">Reload
-				picture</button>
-			<button class="button" onclick="updateXml();">Update XML</button>
-		</p>
-	</div>
-
-	<script>
+<script>
 	window.onload = function() {
 		var jsonResponse;
 		var ctx = "${pageContext.request.contextPath}";
@@ -141,7 +138,7 @@ canvas {
 				'data' : JSON.stringify(receipt),
 				'success' : function() {
 					console.log('Receipt updated');
-					printRects();
+					location.reload();
 				},
 				'error' : function(request, error) {
 					console.log('Receipt update failed');

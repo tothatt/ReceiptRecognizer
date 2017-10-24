@@ -48,13 +48,12 @@
 
 	<context:component-scan base-package="com.bme.receiptrecognizer" />
 
-	<mvc:default-servlet-handler />
-
 	<context:annotation-config />
 
 	<context:property-placeholder />
 
-
+    <mvc:resources mapping="/resources/**" location="/resources/"/>
+	<mvc:default-servlet-handler />
 	<mvc:annotation-driven />
 
 	<bean id="viewResolver"

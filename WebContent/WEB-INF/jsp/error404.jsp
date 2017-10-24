@@ -1,39 +1,29 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-<meta name="_csrf" content="${_csrf.token}" />
+    <meta charset="utf-8">
+	<meta name="_csrf" content="${_csrf.token}" />
 <meta name="_csrf_parameter" content="_csrf" />
 <meta name="_csrf_header" content="${_csrf.headerName}" />
 <title>Receipt Recognizer BME</title>
-<style type="text/css">
-body {
-	background-image: url('http://crunchify.com/bg.png');
-}
+    <title>Error 404 page not found</title>
 
-.button {
-	background-color: #4CAF50; /* Green */
-	border: none;
-	color: white;
-	padding: 15px 32px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 16px;
-}
-</style>
-<script type="text/javascript"
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900'
+          rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/animate.css">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/404.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 </head>
+
 <body>
-	<br>
-	<div style="text-align: center">
-		<h2>
-			404 page not found<br> <br>
-		</h2>
-		
-	
-	</div>
-	<script>
-		
-	</script>
+<div class="container">
+	<button class="logout" onclick="javascript:location.href='<%=request.getContextPath()%>/logout'">Logout</button>
+    <h1><span>404</span> Page not found</h1>
+</div>
 </body>
 </html>

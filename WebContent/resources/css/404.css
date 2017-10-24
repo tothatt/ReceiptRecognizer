@@ -1,0 +1,66 @@
+body {
+    background: url("../images/photo_bg.jpg") no-repeat center center fixed;
+    background-size: cover;
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    margin: 0;
+    color: white;
+}
+
+.logout {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+button {
+    border: 0;
+    border-radius: 2px;
+    color: white;
+    padding: 10px;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 0.7em;
+    letter-spacing: 1px;
+    background-color: #665851;
+    cursor:pointer;
+    outline: none;
+    margin:10px;
+}
+
+button:hover {
+    opacity: 0.7;
+    transition: 0.5s;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+h1 {
+    text-align: center;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-size: 50px;
+}
+h1#title span span {
+    font-weight: 400;
+}
+
+h1 span {
+    font-size: 70px;
+}
+/* Animation Delay */
+#image {
+    -webkit-animation-duration: 1s;
+    -webkit-animation-delay: 2s;
+}

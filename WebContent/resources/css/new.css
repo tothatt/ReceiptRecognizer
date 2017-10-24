@@ -1,0 +1,112 @@
+body {
+    background: url("../images/photo_bg.jpg") no-repeat center center fixed;
+    background-size: cover;
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    margin: 0;
+    color: #666;
+}
+
+h1#title {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 300;
+    font-size: 3.2em;
+    color: white;
+    text-shadow: 0 0 10px rgba(0,0,0,0.8);
+    margin: 0 auto;
+    padding-top: 50px;
+    max-width: 300px;
+    text-align: center;
+    position: relative;
+    top: 0px;
+}
+
+.new-container {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
+button {
+    border: 0;
+    border-radius: 2px;
+    color: white;
+    padding: 10px;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 0.7em;
+    letter-spacing: 1px;
+    background-color: #665851;
+    cursor:pointer;
+    outline: none;
+    margin:10px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.proceed {
+    display: flex;
+    justify-content: center;
+}
+
+.logout {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+button:hover {
+    opacity: 0.7;
+    transition: 0.5s;
+}
+
+.arrow {
+    height:100px;
+    cursor: pointer;
+}
+
+.new-container .actions {
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+}
+.new-container textarea {
+    width: 300px;
+    height: 300px;
+}
+
+.fake-input input {
+    opacity: 0;
+    width: 300px;
+    height: 300px;
+    border: 5px dashed white;
+}
+.fake-input {
+    display: -webkit-box;
+    width: 300px;
+    height: 300px;
+    border: 5px dashed white;
+}
+
+#output {
+    display: none;
+    width: 300px;
+    height:300px;
+}
+
+h1#title span span {
+    font-weight: 400;
+}
+/* Animation Delay */
+#image {
+    -webkit-animation-duration: 1s;
+    -webkit-animation-delay: 2s;
+}

@@ -1,0 +1,127 @@
+body {
+    background: url("../images/photo_bg.jpg") no-repeat center center fixed;
+    background-size: cover;
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    margin: 0;
+    color: #666;
+}
+
+h2 {
+    width: 100%;
+    text-transform: uppercase;
+    color: white;
+    font-weight: 400;
+    letter-spacing: 1px;
+    font-size: 1.4em;
+}
+
+/* Layout */
+.container {
+    margin: 0;
+}
+
+.logout {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.top {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background: -moz-linear-gradient(top,  rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  rgba(0,0,0,0.6) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  rgba(0,0,0,0.6) 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+}
+
+.table-box {
+    background-color: white;
+    margin: 0 auto;
+    position: relative;
+    top: 80px;
+    padding-bottom: 30px;
+    border-radius: 5px;
+    box-shadow: 0 5px 50px rgba(0,0,0,0.4);
+    text-align: center;
+}
+
+button {
+    border: 0;
+    border-radius: 2px;
+    color: white;
+    padding: 8px;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 0.7em;
+    letter-spacing: 1px;
+    background-color: #665851;
+    cursor:pointer;
+    outline: none;
+}
+
+button:hover {
+    opacity: 0.7;
+    transition: 0.5s;
+}
+
+.action:hover img {
+    display: inline;
+}
+
+.action {
+    cursor: pointer;
+}
+
+img {
+    display: none;
+    width: 20px;
+    height:20px;
+    padding: 5px;
+}
+
+th {
+    width: 15%;
+}
+
+td {
+    height:40px;
+    width: 15%;
+}
+
+.table-box .box-header {
+    background-color: #665851;
+    margin-top: 0;
+    border-radius: 5px 5px 0 0;
+}
+
+.box-header {
+    display: flex;
+}
+
+.box-header h2 {
+    align-self: center;
+}
+
+.box-header .placeholder {
+    width: 100px;
+}
+.box-header button {
+    width: 100px;
+    border: 2px solid;
+    align-self: center;
+}
+
+/* Animation Delay */
+#logo {
+    -webkit-animation-duration: 1s;
+    -webkit-animation-delay: 2s;
+}
+
+.table-box {
+    -webkit-animation-duration: 1s;
+    -webkit-animation-delay: 1s;
+}

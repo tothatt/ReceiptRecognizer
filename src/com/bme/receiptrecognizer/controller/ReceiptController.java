@@ -100,7 +100,7 @@ public class ReceiptController {
 
 	@RequestMapping(value = "/upload", method = RequestMethod.POST)
 	public ModelAndView singleFileUpload(@RequestParam("textFile") MultipartFile file,
-			@RequestParam("fileName") String fileName) {
+			@RequestParam("fileName") String fileName) throws Exception {
 		if (file.isEmpty()) {
 			return new ModelAndView("index");
 		}
@@ -113,15 +113,10 @@ public class ReceiptController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return new ModelAndView("index");
-	}
-
-	@RequestMapping(value = "/processimage/{name}", method = RequestMethod.GET)
-	public ModelAndView processImage(HttpServletRequest request, @PathVariable String name) throws Exception {
 		App.performRecognition(ClientSettings.RESOURCE_URL
-				+ SecurityContextHolder.getContext().getAuthentication().getName() + "/" + name,
-				ClientSettings.RESOURCE_URL + name + ".result.xml", "Hungarian");
-		return new ModelAndView("receipt", "szamlanev", name);
+				+ SecurityContextHolder.getContext().getAuthentication().getName() + "/" + fileName,
+				ClientSettings.RESOURCE_URL + SecurityContextHolder.getContext().getAuthentication().getName() + "/" +  fileName + ".result.xml", "Hungarian");
+		return new ModelAndView("receipt", "szamlanev", fileName);
 	}
 
 	@ResponseBody
