@@ -100,7 +100,7 @@ form input {
 
 .form-element {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-end;
     margin-bottom: 20px;
 }
 
@@ -112,3 +112,4 @@ h1#title span span {
     -webkit-animation-duration: 1s;
     -webkit-animation-delay: 2s;
 }
+

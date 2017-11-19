@@ -26,16 +26,17 @@
  		<button class="logout" onclick="javascript:location.href='<%=request.getContextPath()%>/logout'">Logout</button>        <div class="edit-container">
             <div class="img-container">
                 <img src="${pageContext.request.contextPath}/images/${szamlanev}" id="image" alt="">
+                <input type="range" name="points" id="size" value="50" min="1" max="100" onchange="resizeImg();"> 
             </div>
-            <form action="">
+            <form>
                 <div class="form-element"><label for="name">Name</label><input id="name" type="text" readonly/></div>
                 <div class="form-element"><label for="company">Company</label><input id="company" type="text" /></div>
                 <div class="form-element"><label for="address">Address</label><input id="address" type="text" /></div>
                 <div class="form-element"><label for="date">Date</label><input id="date" type="date" /></div>
                 <div class="form-element"><label for="finalValue">Final value</label><input id="finalValue" type="text" /></div>
                 <div class="button-container">
-                    <button onclick="javascript:location.href='/'">CANCEL</button>
-                    <button>SAVE</button>
+                    <button onclick="return backToTable();">CANCEL</button>
+                    <button onclick="updateData();">SAVE</button>
                 </div>
             </form>
         </div>
@@ -47,6 +48,8 @@
 		window.onload = function() {
 			var receipt;
 			var ctx = "${pageContext.request.contextPath}";
+			var imgWidth = $("#image").width();
+			var imgHeight = $("#image").height();;
 
 			var token = $("meta[name='_csrf']").attr("content");
 			$.ajaxPrefilter(function(options, originalOptions, jqXHR) {
@@ -62,6 +65,7 @@
 			            window.location.href = ctx + '/error/' + data.errCode;
 			        }
 					receipt = data;
+					resizeImg();
 					printData(data);
 				},
 				'error' : function(request, error) {
@@ -82,6 +86,43 @@
 				$("#date").val(today);
 				$("#finalValue").val(data.finalValue);
 			}
+			
+			resizeImg = function(){
+				$("#image").css("width",imgWidth*($("#size").val()/100));
+				$("#image").css("height",imgHeight*($("#size").val()/100));
+			}
+			
+			updateData = function(){
+				receipt.company = $("#company").val();
+				receipt.address = $("#address").val();
+
+				receipt.date = new Date($("#date").val());
+				receipt.finalValue = $("#finalValue").val();
+				$.ajaxPrefilter(function (options, originalOptions, jqXHR) {
+					  jqXHR.setRequestHeader('X-CSRF-Token', token);
+					});
+				$.ajax({
+					'url' : ctx + '/changedata',
+					'type' : 'POST',
+					'contentType': 'application/json;charset=UTF-8',
+					'data' : JSON.stringify(receipt),
+					'success' : function() {
+						console.log('Receipt updated');
+						location.replace(ctx + '/receipttable');
+					},
+					'error' : function(request, error) {
+						console.log('Receipt update failed');
+					}
+				});
+			}
+			
+			backToTable = function(){
+				console.log($(location).attr('href'));	
+				window.location.href = ctx + '/receipttable';
+				return false;;
+			}
+			
+			
 		}
 	</script>
 </html>

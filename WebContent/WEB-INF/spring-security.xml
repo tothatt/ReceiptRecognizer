@@ -3,25 +3,25 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 						http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
 
-	<http auto-config='true'>
-	    <intercept-url pattern="/login*" access="permitAll"/>
-	    <intercept-url pattern="/resources/**" access="permitAll"/>
-	    <intercept-url pattern="/**" access="isAuthenticated()" />
-		<form-login login-page="/login"  default-target-url="/" authentication-failure-url="/error"
-			username-parameter="username" password-parameter="password" />
-		<logout logout-success-url="/logout" />
-		
-		<csrf />
-		
-	</http>
-
-	<authentication-manager>
-		<authentication-provider>
-			<user-service>
-				<user name="test" password="test" authorities="ROLE_ADMIN" />
-			</user-service>
-		</authentication-provider>
-	</authentication-manager>
+		<http auto-config='true'>
+		    <intercept-url pattern="/login*" access="permitAll"/>
+		    <intercept-url pattern="/resources/**" access="permitAll"/>
+		    <intercept-url pattern="/**" access="isAuthenticated()" />
+			<form-login login-page="/login"  default-target-url="/" authentication-failure-url="/error"
+				username-parameter="username" password-parameter="password" />
+			<logout logout-success-url="/logout" />
+			
+			<csrf />
+			
+		</http>
+	
+		<authentication-manager>
+			<authentication-provider>
+				<user-service>
+					<user name="test" password="test" authorities="ROLE_ADMIN" />
+				</user-service>
+			</authentication-provider>
+		</authentication-manager>
 
 
 </b:beans>

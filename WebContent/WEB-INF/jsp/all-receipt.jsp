@@ -94,7 +94,8 @@
 	        cell = row.insertCell(-1);
 	        cell.innerHTML = jsonResponse[i][2];
 	        cell = row.insertCell(-1);
-	        cell.innerHTML = new Date(jsonResponse[i][3]);
+	        var date = new Date(jsonResponse[i][3]);
+	        cell.innerHTML = date.getFullYear() + '-' + date.getMonth() + '-' + date.getDay();
 	        cell = row.insertCell(-1);
 	        cell.innerHTML = jsonResponse[i][4] + ' ft'; 
 	       	cell = row.insertCell(-1);

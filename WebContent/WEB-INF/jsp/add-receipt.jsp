@@ -24,28 +24,40 @@
 	<div class="container" style="text-align: center">
 		<div class="top">
 			<h1 id="title" class="hidden">
-				<span id="logo">Add new <br>
-				<span>Receipt</span></span>
+				<span id="logo">Add new Receipt	</span>
 			</h1>
 			<button class="logout"  onclick="javascript:location.href='<%=request.getContextPath()%>/logout'">Logout</button>
 			<div class="edit-container">
+			<div class="button-container">
 				<form method="POST"
 					action="${pageContext.request.contextPath}/upload?${_csrf.parameterName}=${_csrf.token}"
 					enctype="multipart/form-data">
+					<div class="file-upload">
 					<div class="form-element">
-						<label for="fileName">Name</label><input id="fileName" name="fileName" type="text" />
-					</div>
-					<div class="form-element">
-						<input type="file" class="file" name="textFile" onchange="document.getElementById('fileName').value = this.value.split('\\').pop().split('/').pop().split('.')[0]" />
-					</div>
+						<input id="fileName" name="fileName" type="text"/>
+					
+						
+							<label for="file-input">
+		        				<span class="button">CHOOSE IMAGE</span>
+		    				</label>
+							<input type="file" class="file" id="file-input" onchange="document.getElementById('fileName').value = this.value.split('\\').pop().split('/').pop().split('.')[0]" />
+						</div>
 					<div class="button-container">
-						<button>CANCEL</button>
-						<button>UPLOAD</button>
+						<button onclick="return backToTable();">CANCEL</button>
+						<button>ADD</button>
+					</div>
 					</div>
 				</form>
+				</div>
 			</div>
 		</div>
 	</div>
-
+	<script>
+	backToTable = function(){
+		console.log($(location).attr('href'));	
+		window.location.href = "${pageContext.request.contextPath}/receipttable";
+		return false;;
+	}
+	</script>
 </body>
 </html>

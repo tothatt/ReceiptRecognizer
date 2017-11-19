@@ -32,16 +32,13 @@
 					src="${pageContext.request.contextPath}/images/${szamlanev}" /> <img
 					id="output" />
 				<div class="display">
-					<select id="imageSize" onchange="sizeChange();">
-						<option value="5">Extra small</option>
-						<option value="4">Small</option>
-						<option value="3">Medium</option>
-						<option selected="selected" value="2">Large</option>
-						<option value="1">Extra Large</option>
-					</select>
+				<input type="range" name="points" id="imageSize" value="50" min="1" max="100" onchange="sizeChange();">
+				</div>
+				<div class="display">
 					<button onclick="printRects();">SHOW</button>
 					<button onclick="hideRects();">HIDE</button>
 					<button onclick="updateXml();">UPDATE</button>
+					<button onclick="return backToTable();">CANCEL</button>
 				</div>
 			</div>
 			<div class="actions">
@@ -64,7 +61,7 @@
 		var canvasCtx = canvas.getContext('2d');
 		var imgWidth = 100;
 		var imgHeight = 100;
-		var smaller = 2;
+		var smaller = $("#imageSize").val();
 		var img = document.getElementById('receipt'); /// canvas element
 		var jsonObject;
 		var receipt;
@@ -92,15 +89,15 @@
 			}
 		});
 		printRects = function(json) {
-			width = receipt.imgWidth/smaller
-			height = receipt.imgHeight/smaller
+			width = receipt.imgWidth*(smaller/100);
+			height = receipt.imgHeight*(smaller/100);
 			canvasCtx.canvas.width = width;
 			canvasCtx.canvas.height = height;
 			
 			canvasCtx.drawImage(img, 0,0, width, height);
 			jsonObject = receipt.chars;
 			for (var i = 0; i < jsonObject.length; i++) {
-				canvasCtx.rect(jsonObject[i].l/smaller, jsonObject[i].t/smaller, (jsonObject[i].r/smaller-jsonObject[i].l/smaller), (jsonObject[i].b/smaller-jsonObject[i].t/smaller));
+				canvasCtx.rect(jsonObject[i].l*(smaller/100), jsonObject[i].t*(smaller/100), (jsonObject[i].r*(smaller/100)-jsonObject[i].l*(smaller/100)), (jsonObject[i].b*(smaller/100)-jsonObject[i].t*(smaller/100)));
 				if(jsonObject[i].suspicious){
 					canvasCtx.strokeStyle = "red";
 					canvasCtx.fillStyle = 'red';}
@@ -108,16 +105,16 @@
 					canvasCtx.strokeStyle = "black";
 					canvasCtx.fillStyle = 'blue';}
 				canvasCtx.stroke();
-				var fontSize = Math.round(50 / smaller);
+				var fontSize = Math.round(50 *(smaller/100));
 				canvasCtx.font=fontSize+"px Time New Roman";
-				canvasCtx.fillText(jsonObject[i].s,jsonObject[i].l/smaller, jsonObject[i].b/smaller);
+				canvasCtx.fillText(jsonObject[i].s,jsonObject[i].l*(smaller/100), jsonObject[i].b*(smaller/100));
 			}
 		}
 		$("#canvas").click(function(e){
 			for (var i = 0; i < jsonObject.length; i++) {
 				  var x = e.pageX - this.offsetLeft;
 				  var y = e.pageY - this.offsetTop;
-				if (jsonObject[i].l/smaller < x && jsonObject[i].r/smaller > x && jsonObject[i].b/smaller > y && jsonObject[i].t/smaller < y) {
+				if (jsonObject[i].l*(smaller/100) < x && jsonObject[i].r*(smaller/100) > x && jsonObject[i].b*(smaller/100) > y && jsonObject[i].t*(smaller/100) < y) {
 					var newchar = prompt("New value for char: ", jsonObject[i].s);
 					if(newchar !== jsonObject[i].s && newchar != null && newchar != undefined) {
 						jsonObject[i].s = newchar;
@@ -169,7 +166,11 @@
 			    }
 			 textAreaAdjust(document.getElementById("textFromReceipt"));
 		}
-		
+		backToTable = function(){
+			console.log($(location).attr('href'));	
+			window.location.href = "${pageContext.request.contextPath}/receipttable";
+			return false;;
+		}
 	}
 	</script>
 </body>

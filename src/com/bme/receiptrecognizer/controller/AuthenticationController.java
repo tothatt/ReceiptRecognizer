@@ -9,30 +9,31 @@ import org.springframework.security.web.authentication.logout.SecurityContextLog
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class AuthenticationController {
 
-	@RequestMapping("/error")
+	@RequestMapping(value = "/error", method = RequestMethod.GET)
 	public String error(ModelMap model) {
 		model.addAttribute("error", "true");
 		return "login";
 
 	}
 	
-	@RequestMapping(value = "/error404")
+	@RequestMapping(value = "/error404", method = RequestMethod.GET)
 	public String error404() {
 		return "error404";
 	}
 
 
-	@RequestMapping("/login")
+	@RequestMapping(value= "/login", method = RequestMethod.GET)
 	public String login() {
 		System.out.println("Inside login");
 		return "login";
 	}
 
-	@RequestMapping("/logout")
+	@RequestMapping(value= "/logout", method = RequestMethod.GET)
 	public String logout(HttpServletRequest request, HttpServletResponse response) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		if (auth != null) {

@@ -50,21 +50,21 @@ public class ReceiptController {
 	private XmlWriterService xmlWriterService;
 
 	private TextParserService textParserService;
-	
+
 	private DataFromReceiptService dataFromReceiptService;
-	
+
 	private ReceiptService receiptService;
 
 	@Autowired
 	public void setXmlParserService(XmlParserService xmlParserService) {
 		this.xmlParserService = xmlParserService;
 	}
-	
+
 	@Autowired
 	public void setDataFromReceiptService(DataFromReceiptService dataFromReceiptService) {
 		this.dataFromReceiptService = dataFromReceiptService;
 	}
-	
+
 	@Autowired
 	public void setReceiptService(ReceiptService receiptService) {
 		this.receiptService = receiptService;
@@ -80,7 +80,7 @@ public class ReceiptController {
 		this.textParserService = textParserService;
 	}
 
-	@RequestMapping("/addreceipt")
+	@RequestMapping(value = "/addreceipt", method = RequestMethod.GET)
 	public String addreceipt() {
 		if (Files.notExists(Paths
 				.get(ClientSettings.RESOURCE_URL + SecurityContextHolder.getContext().getAuthentication().getName()))) {
@@ -93,8 +93,8 @@ public class ReceiptController {
 		return "add-receipt";
 	}
 
-	@RequestMapping("/receipt/{name}")
-	public ModelAndView welcome(@PathVariable String name) {
+	@RequestMapping(value = "/receipt/{name}", method = RequestMethod.GET)
+	public ModelAndView receipt(@PathVariable String name) {
 		return new ModelAndView("receipt", "szamlanev", name);
 	}
 
@@ -113,9 +113,12 @@ public class ReceiptController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		App.performRecognition(ClientSettings.RESOURCE_URL
-				+ SecurityContextHolder.getContext().getAuthentication().getName() + "/" + fileName,
-				ClientSettings.RESOURCE_URL + SecurityContextHolder.getContext().getAuthentication().getName() + "/" +  fileName + ".result.xml", "Hungarian");
+		App.performRecognition(
+				ClientSettings.RESOURCE_URL + SecurityContextHolder.getContext().getAuthentication().getName() + "/"
+						+ fileName,
+				ClientSettings.RESOURCE_URL + SecurityContextHolder.getContext().getAuthentication().getName() + "/"
+						+ fileName + ".result.xml",
+				"Hungarian");
 		return new ModelAndView("receipt", "szamlanev", fileName);
 	}
 
@@ -131,7 +134,7 @@ public class ReceiptController {
 			"application/json; charset=UTF-8" })
 	public @ResponseBody Receipt imageInfo(HttpServletRequest request, @PathVariable String name) throws IOException {
 		Receipt r = receiptService.getReceipt(name, SecurityContextHolder.getContext().getAuthentication().getName());
-		if(r != null)
+		if (r != null)
 			return r;
 		Receipt receipt = xmlParserService.parsexml(ClientSettings.RESOURCE_URL
 				+ SecurityContextHolder.getContext().getAuthentication().getName() + "/" + name + ".result.xml");
@@ -171,11 +174,13 @@ public class ReceiptController {
 	@RequestMapping(value = "/receiptinfo/{name}", method = RequestMethod.GET, produces = {
 			"application/json; charset=UTF-8" })
 	public @ResponseBody DataFromReceipt receipInfo(HttpServletRequest request, @PathVariable String name) {
-		DataFromReceipt dr = dataFromReceiptService.getDataFromReceipt(name, SecurityContextHolder.getContext().getAuthentication().getName());
-		if(dr != null)
+		DataFromReceipt dr = dataFromReceiptService.getDataFromReceipt(name,
+				SecurityContextHolder.getContext().getAuthentication().getName());
+		if (dr != null)
 			return dr;
-		Receipt receipt = receiptService.getReceipt(name, SecurityContextHolder.getContext().getAuthentication().getName());
-		if(receipt == null) {
+		Receipt receipt = receiptService.getReceipt(name,
+				SecurityContextHolder.getContext().getAuthentication().getName());
+		if (receipt == null) {
 			receipt = new Receipt();
 			receipt.setUser(SecurityContextHolder.getContext().getAuthentication().getName());
 			receipt.setName(name);
@@ -196,17 +201,29 @@ public class ReceiptController {
 		dataFromReceiptService.add(data);
 		return data;
 	}
+	
+	@RequestMapping(value = "/changedata", method = RequestMethod.POST)
+	public @ResponseBody Boolean changeData(@RequestBody DataFromReceipt dataFromReceipt) {
+		dataFromReceiptService.update(dataFromReceipt);
+		return true;
+	}
 
-	@RequestMapping(value = "/", method = RequestMethod.GET, produces = {
-			"application/json; charset=UTF-8" })
+
+	@RequestMapping(value = "/", method = RequestMethod.GET, produces = { "application/json; charset=UTF-8" })
 	public String allReceipt() {
+		return "all-receipt";
+	}
+
+	@RequestMapping(value = "/receipttable", method = RequestMethod.GET)
+	public String receiptTable() {
 		return "all-receipt";
 	}
 
 	@RequestMapping(value = "/allreceiptdata", method = RequestMethod.GET, produces = {
 			"application/json; charset=UTF-8" })
 	public @ResponseBody List<DataFromReceipt> receipInfos(HttpServletRequest request) {
-		List<DataFromReceipt> data = dataFromReceiptService.listAllByUser(SecurityContextHolder.getContext().getAuthentication().getName());
+		List<DataFromReceipt> data = dataFromReceiptService
+				.listAllByUser(SecurityContextHolder.getContext().getAuthentication().getName());
 		return data;
 	}
 

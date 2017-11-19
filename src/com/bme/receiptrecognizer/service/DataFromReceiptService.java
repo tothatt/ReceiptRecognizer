@@ -31,6 +31,11 @@ public class DataFromReceiptService {
 			dataFromReceiptDao.persist(dataFromReceipt);
 		}
 	}
+	
+	@Transactional
+	public void update(DataFromReceipt dataFromReceipt) {
+		dataFromReceiptDao.update(dataFromReceipt);
+	}
 
 	public List<DataFromReceipt> listAllByUser(String user) {
 		return dataFromReceiptDao.findAllByUser(user);

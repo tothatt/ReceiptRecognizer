@@ -22,7 +22,17 @@ public class DataFromReceiptDao {
 
 	public void persist(DataFromReceipt dataFromReceipt) {
 		em.persist(dataFromReceipt);
-	}	
+	}
+	
+	public void update(DataFromReceipt dataFromReceipt) {
+		Query q =  em.createNativeQuery("UPDATE datafromreceipt set datafromreceipt_finalvalue = ?1,datafromreceipt_address = ?2,datafromreceipt_company = ?3, datafromreceipt_date = ?4 where datafromreceipt_id = ?5");
+		q.setParameter(1, dataFromReceipt.getFinalValue());
+		q.setParameter(2, dataFromReceipt.getAddress());
+		q.setParameter(3, dataFromReceipt.getCompany());
+		q.setParameter(4, dataFromReceipt.getDate());
+		q.setParameter(5, dataFromReceipt.getId());
+		q.executeUpdate();
+	}
 
 	public List<DataFromReceipt> findAllByUser(String user) {
 		Query q =  em.createNativeQuery("SELECT * FROM datafromreceipt where datafromreceipt_user = ?1");

@@ -30,13 +30,17 @@ public class ReceiptException extends RuntimeException {
 	}
 
 	public ReceiptException(String errCode) {
-
 		this.errCode = errCode;
 		this.errMsg = "unknown error";
 		if ("1000".equals(errCode)) {
 			this.errMsg = "receipt not found";
 		}
-
+		else if ("1001".equals(errCode)) {
+			this.errMsg = "picture not found";
+		}
+		else if ("1002".equals(errCode)) {
+			this.errMsg = "error connecting to the database";
+		}
 	}
 
 }

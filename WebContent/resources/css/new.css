@@ -16,6 +16,7 @@ h1#title {
     text-shadow: 0 0 10px rgba(0,0,0,0.8);
     margin: 0 auto;
     padding-top: 50px;
+    padding-bottom: 100px;
     max-width: 300px;
     text-align: center;
     position: relative;
@@ -27,6 +28,27 @@ h1#title {
     justify-content: center;
     align-items:center;
 }
+
+.button {
+    border: 0;
+    border-radius: 2px;
+    color: white;
+    padding: 10px;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 0.7em;
+    letter-spacing: 1px;
+    background-color: #665851;
+    cursor:pointer;
+    outline: none;
+    margin:10px;
+}
+
+.button:hover {
+    opacity: 0.7;
+    transition: 0.5s;
+}
+
 
 button {
     border: 0;
@@ -109,4 +131,39 @@ h1#title span span {
 #image {
     -webkit-animation-duration: 1s;
     -webkit-animation-delay: 2s;
+}
+
+input[type=file] {
+  font-size: 100px;
+  border: 2px #665851;
+  color: #665851;
+  background-color: white;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#name_label {
+	font-size: 22px;
+    color: #665851;
+    font-weight: bold;
+    margin: 20;
+}
+
+.form-element {
+	margin-bottom: 30px;
+}
+#fileName {
+	 height:27px;
+	 width: 300px;
+}
+#imageSize {
+	width: 100%;
+}
+
+#file-input
+{
+    display: none;
 }

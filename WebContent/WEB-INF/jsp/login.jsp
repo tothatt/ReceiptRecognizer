@@ -33,7 +33,6 @@
 			}
 		%>
 					<form name='loginForm' action="<c:url value='login' />" method='POST'>
-
 						</div>
 						<label for="username">Username</label>
 						<br/>
