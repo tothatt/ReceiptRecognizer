@@ -76,15 +76,7 @@ public class TextParserService {
 	}
 
 	public String getItemsFromReceipt(Receipt receipt) {
-		String company = "";
-		Pattern p = Pattern.compile(""
-				+ "(.)*(Kkt|Kht|Bt|Kv|Kft|Rt|ZRt|NyRt|KKT|KHT|BT|KV|KFT|RT|ZRT|NYRT|kkt|kht|bt|kv|kft|rt|zrt|nyrt)(\\.)?");
-		Matcher m = p.matcher(getLinesFromReceipt(receipt, 0, 2));
-		if (m.find()) {
-			company = m.group();
-		}
-		return company;
-
+		return "";
 	}
 
 	public String getFinalAmount(Receipt receipt) {
